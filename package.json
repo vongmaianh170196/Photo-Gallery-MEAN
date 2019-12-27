@@ -1,0 +1,33 @@
+{
+  "name": "photo-gallery-mean",
+  "version": "1.0.0",
+  "description": "Photo gallery with MEAN stack",
+  "main": "server.js",
+  "scripts": {
+    "server": "nodemon server.js",
+    "angular": "ng serve --prefix angular-src",
+    "dev": "concurrently \"npm run server\" \"npm run angular\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vongmaianh170196/Photo-Gallery-MEAN.git"
+  },
+  "author": "Anh Vo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vongmaianh170196/Photo-Gallery-MEAN/issues"
+  },
+  "homepage": "https://github.com/vongmaianh170196/Photo-Gallery-MEAN#readme",
+  "dependencies": {
+    "cloudinary": "^1.18.1",
+    "config": "^3.2.4",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "formidable": "^1.2.1",
+    "mongoose": "^5.8.3"
+  },
+  "devDependencies": {
+    "concurrently": "^5.0.2",
+    "nodemon": "^2.0.2"
+  }
+}
