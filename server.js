@@ -1,14 +1,18 @@
 const express = require('express');
 const connectDb = require('./config/db');
 const path = require('path');
+const cors = require('cors');
+const formidable = require('formidable');
 
 
 const app = express();
 
 //Middleware
+app.use(cors());
 app.use(express.json({
     extended: false
 }));
+
 
 
 //Connect to Db
