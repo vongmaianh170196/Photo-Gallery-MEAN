@@ -25,9 +25,10 @@ export class PhotosComponent implements OnInit {
       }
     ]
   }
-  addPhoto(photo:Photo){
-    this.photoService.addPhoto(photo).subscribe(photo => {
-      this.photos.push(photo)
-    })
+  addPhoto(photo){    
+    var formData = new FormData();
+    formData.append("caption", photo.caption);
+    formData.append("link", photo.link);
+    this.photoService.addPhoto(formData).subscribe(res => console.log(res))
   }
 }

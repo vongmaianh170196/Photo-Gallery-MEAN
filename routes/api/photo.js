@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const formidable = require('formidable');
+const IncomingForm = require('formidable').IncomingForm
 const cloudinary = require("cloudinary");
 
 require('dotenv').config();
@@ -13,12 +14,18 @@ cloudinary.config({
 const Photo = require('../../Models/Photo');
 
 router.post('/upload', function (req, res){
-  const form = new formidable.IncomingForm();
+  var form = new IncomingForm()
+  form.parse(req, function(err, fields, files) {
+    cloudinary.uploader.upload(files.link.path, result => {
+      res.json(result)
+    });
+  });
+  // const form = new formidable.IncomingForm();
 
-      form.parse(req, function(err, fields, files) {
-        console.log(fields)
-        res.json(files)
-      });
+  //     form.parse(req, function(err, fields, files) {
+  //       console.log(files)
+  //       // res.json(files)
+  //     });
       
   // form.on('fileBegin', function (name, file){
   //     file.path = __dirname + '/uploads/' + file.name;

@@ -22,7 +22,7 @@ export class PhotoService {
 
   }
 
-  addPhoto(photo:Photo):Observable<Photo>{
-    return this.http.post<Photo>(this.url, photo, httpOptions);
+  addPhoto(formData){
+    return this.http.post<Photo>(this.url, formData);
   }
 }

@@ -14,11 +14,15 @@ export class AddPhotoComponent implements OnInit {
 
   ngOnInit() {
   }
+  fileUploadChange(event){
+    this.link = event.target.files[0];
+  }
   onSubmit(){
     const photo = {
       caption: this.caption,
       link: this.link
     }
+    
     this.addPhoto.emit(photo)
   }
 

@@ -1,5 +1,5 @@
 <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
     <input type="text" name="caption" [(ngModel)]="caption"/>
-    <input type="file" name="link" [(ngModel)]="link"/>
+    <input type="file" name="link" (change)="fileUploadChange($event)"/>
     <input type="submit" value="Submit"/>
 </form>
