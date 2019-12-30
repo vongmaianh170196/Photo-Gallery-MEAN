@@ -1,8 +1,39 @@
-<div>
+<div class="mt-4 mb-4">
+    <ng-template #content let-modal>
+        <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Upload a photo</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <form enctype="multipart/form-data">                
+                <div class="file-field d-flex">
+                    <div class="btn btn-neutral">
+                      <span>Choose file</span>
+                      <input type="file" class="custom-file-input" (change)="fileUploadChange($event)" id="path">                      
+                    </div>
+                    <div class="form-control ml-2 w-50" *ngIf="path">{{path.name}}</div>
+                    <div class="form-control ml-2 w-50" *ngIf="!path">Upload photo...</div>
+                </div>
+                <div class="form-group">
+                    <label>Caption</label>
+                    <input type="text" name="caption" class="form-control" [(ngModel)]="caption"/>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer d-flex justify-content-between">
+            <button type="button" class="btn btn-positive" (click)="onSubmit()">Upload</button>
+            <button type="button" class="btn btn-neutral" (click)="modal.close('Cancel')">Cancel</button>
+        </div>
+    </ng-template>
+    
+    <button class="btn btn-lg btn-positive" (click)="open(content)">Upload photo</button>
+</div>    
+<!-- <div>
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#uploadImage">
         Upload a photo
     </button>      
-      <!-- Modal -->
     <div class="modal fade" id="uploadImage" tabindex="-1" role="dialog" aria-labelledby="UploadImage" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
@@ -28,4 +59,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->

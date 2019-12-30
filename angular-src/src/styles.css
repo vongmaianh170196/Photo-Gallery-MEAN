@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+.btn{
+    cursor: pointer;
+}
+.btn-positive, .btn-positive:hover, .btn-positive:active, .btn-positive:focus{
+    background-color: green;
+    color:white;
+    border:none
+}
+.btn-neutral, .btn-neutral:hover, .btn-neutral:active, .btn-neutral:focus{
+    background-color: lightgrey;
+    color:#212529;
+    border:1px solid #212529;
+}
+/*Cutom file input*/
+.custom-file-input{
+    position: absolute;
+    left: 1em;
+}
+
+.card{
+    width: 20rem;
+    height: 18rem;
+}
