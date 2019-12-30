@@ -4,7 +4,7 @@ const PhotoSchema = new mongoose.Schema({
     caption: {
         type: String
     },
-    name: {
+    path: {
         type: String
     }
 });

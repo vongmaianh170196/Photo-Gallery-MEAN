@@ -14,15 +14,18 @@ const httpOptions = {
 })
 export class PhotoService {
 
-  url:string='http://localhost:5000/api/photos/upload'
+  url:string='http://localhost:5000/api/photos'
 
   constructor(private http:HttpClient) { }
 
-  getPhotos(){
-
+  getPhotos():Observable<Photo[]>{
+    return this.http.get<Photo[]>(this.url);
   }
 
-  addPhoto(formData){
-    return this.http.post<Photo>(this.url, formData);
+  addPhoto(photo:Photo){
+    var formData = new FormData();
+    formData.append("caption", photo.caption);
+    formData.append("path", photo.path);
+    return this.http.post<Photo>(this.url + "/upload", formData);
   }
 }

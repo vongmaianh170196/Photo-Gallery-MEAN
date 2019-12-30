@@ -9,18 +9,18 @@ export class AddPhotoComponent implements OnInit {
   @Output() addPhoto: EventEmitter<any> = new EventEmitter();
 
   caption:string;
-  link:string;
+  path:string;
   constructor() { }
 
   ngOnInit() {
   }
   fileUploadChange(event){
-    this.link = event.target.files[0];
+    this.path = event.target.files[0];
   }
   onSubmit(){
     const photo = {
       caption: this.caption,
-      link: this.link
+      path: this.path
     }
     
     this.addPhoto.emit(photo)

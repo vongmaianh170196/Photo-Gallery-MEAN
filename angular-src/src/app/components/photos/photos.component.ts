@@ -12,23 +12,9 @@ export class PhotosComponent implements OnInit {
   constructor(private photoService:PhotoService) { }
 
   ngOnInit() {
-    this.photos = [
-      {
-        id: "abc",
-        caption:"Testing",
-        link: ""
-      },
-      {
-        id: "abcz2",
-        caption:"Testing2",
-        link: ""
-      }
-    ]
+    this.photoService.getPhotos().subscribe(photos => this.photos = photos)
   }
-  addPhoto(photo){    
-    var formData = new FormData();
-    formData.append("caption", photo.caption);
-    formData.append("link", photo.link);
-    this.photoService.addPhoto(formData).subscribe(res => console.log(res))
+  addPhoto(photo:Photo){        
+    this.photoService.addPhoto(photo).subscribe(res => this.photos.push(res))
   }
 }
