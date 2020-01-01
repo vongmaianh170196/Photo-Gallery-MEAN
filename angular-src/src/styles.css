@@ -1,5 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+body{
+    background-color: #d9f2e6;
+    font-family: Verdana,sans-serif;
+}
+.title{
+    color:#003300;
+    font-weight: bold;
+}
+a, a:hover, a:active, a:visited{
+    text-decoration: none;
+    color:white;
+    cursor: pointer;
+}
 .btn{
     cursor: pointer;
 }
@@ -22,4 +35,12 @@
 .card{
     width: 20rem;
     height: 18rem;
+    padding: .25em;
+    background: #206040;
+    color: white;
+}
+p.card-text::first-letter{
+    text-transform: uppercase;
+    font-size: 12pt;
+    text-overflow: ellipsis;
 }
