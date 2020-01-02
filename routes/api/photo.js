@@ -40,29 +40,6 @@ router.get('/', async(req, res) => {
  }
 })
 
-// router.post('/upload', async (req, res) => {
-//   const form = await new formidable.IncomingForm();
-
-//   form.parse(req, function(err, fields, files) {
-//     console.log(files)
-//     res.json(files)
-//   });
-//     //   , (err, fields, files) => {
-//     //   console.log(files);
-//     //   console.log(fields)
-//     //     // cloudinary.uploader.upload(files.link.path, result => {
-
-//     //     //     console.log(result)
-//     //     //     if (result.public_id) {
-//     //     //         res.writeHead(200, { 'content-type': 'text/plain' });
-//     //     //         res.write('received upload:\n\n');
-//     //     //         res.end(util.inspect({ fields: fields, files: files }));
-//     //     //     }
-//     //     // }
-//     //     // );
-//     // });
-
-// })
 
 
 module.exports = router;

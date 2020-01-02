@@ -14,7 +14,7 @@ const httpOptions = {
 })
 export class PhotoService {
 
-  url:string='http://localhost:5000/api/photos'
+  url:string='api/photos'
 
   constructor(private http:HttpClient) { }
 
