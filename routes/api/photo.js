@@ -25,7 +25,12 @@ router.post('/upload', async (req, res) => {
         //Save new photo
         photo.save();
         res.json(photo)
-      });  
+      }, 
+        {
+          //To a specific folder
+          folder: 'my-gallery-mean' 
+        }
+      );  
     });
   } catch (error) {
     console.log(error.message)
