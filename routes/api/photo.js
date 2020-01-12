@@ -27,6 +27,7 @@ router.post('/upload', async (req, res) => {
         res.json(photo)
       }, 
         {
+          secure: true,
           //To a specific folder
           folder: 'my-gallery-mean' 
         }
