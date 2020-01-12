@@ -14,19 +14,21 @@ cloudinary.config({
 
 router.post('/upload', async (req, res) => {
   try {
-    let photo = new Photo();
+    let photo = {};
     var form = new IncomingForm()
-    await form.parse(req, function(err, fields, files) {
+    form.parse(req, function(err, fields, files) {
       photo.caption = fields.caption
       //Post to cloudinary
-      cloudinary.uploader.upload(files.path.path, result => {
+      cloudinary.uploader.upload(files.path.path, async result => {
         //save to database
-        photo.path = result.url;
+        photo.path = result.secure_url;
         //Save new photo
-        photo.save();
+        let newPhoto = await new Photo(photo)
+        await newPhoto.save();
         res.json(photo)
       }, 
         {
+          secure: true,
           //To a specific folder
           folder: 'my-gallery-mean' 
         }

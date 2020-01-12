@@ -5,7 +5,6 @@
   "main": "server.js",
   "scripts": {
     "server": "nodemon server.js",
-    "angular": "ng serve --prefix angular-src",
     "dev": "concurrently \"npm run server\" \"npm run angular\""
   },
   "repository": {
