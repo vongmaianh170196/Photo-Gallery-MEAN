@@ -1,29 +1,46 @@
 const express = require("express");
 const router = express.Router();
+const config = require('config');
 const IncomingForm = require('formidable').IncomingForm
 const cloudinary = require("cloudinary");
 const Photo = require('../../Models/Photo');
+const auth = require('../../middleware/auth');
 
-require('dotenv').config();
 
 cloudinary.config({
-  cloud_name: process.env.CLOUD_NAME,
-  api_key: process.env.API_KEY,
-  api_secret: process.env.API_SECRET
+  cloud_name: config.get('cloudName'),
+  api_key: config.get('cloudApiKey'),
+  api_secret: config.get('cloudApiSecret')
 });
 
-router.post('/upload', async (req, res) => {
+//get photos
+router.get('/', async(req, res) => {
+  try {
+   const photos = await Photo.find();
+   res.json(photos);
+  } catch (error) {
+    console.log(error)
+  }
+ })
+
+
+//Upload photo
+router.post('/upload', auth , async (req, res) => {
   try {
     let photo = {};
     var form = new IncomingForm()
     form.parse(req, function(err, fields, files) {
+      if(fields.title === "") return res.status(400).json({msg: "Title cannot be empty"})
+      photo.title = fields.title
       photo.caption = fields.caption
       //Post to cloudinary
       cloudinary.uploader.upload(files.path.path, async result => {
         //save to database
         photo.path = result.secure_url;
+        photo.user = req.user.id;
+        photo.lovedBy = [];
         //Save new photo
-        let newPhoto = await new Photo(photo)
+        let newPhoto = new Photo(photo)
         await newPhoto.save();
         res.json(photo)
       }, 
@@ -38,15 +55,24 @@ router.post('/upload', async (req, res) => {
     console.log(error.message)
   }
 });
-router.get('/', async(req, res) => {
- try {
-  const photos = await Photo.find();
-  res.json(photos);
- } catch (error) {
-   console.log(error)
- }
+
+//Get photos by user
+router.get('/:user_id', async (req, res) => {
+  try {
+    let photos = await Photo.find({user: req.params.user_id});
+    res.json(photos)
+  } catch (error) {
+    console.log(error)
+  }
 })
 
-
-
+//Get my photos
+router.get('/my_photos',auth, async (req, res) => {
+  try {
+    let photos = await Photo.find({user: req.user.id});
+    res.json(photos)
+  } catch (error) {
+    console.log(error)
+  }
+})
 module.exports = router;

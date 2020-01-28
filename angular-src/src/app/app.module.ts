@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import {RouterModule, Routes} from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { PhotosComponent } from './components/photos/photos.component';
@@ -8,22 +9,47 @@ import { PhotoItemComponent } from './components/photo-item/photo-item.component
 import { AddPhotoComponent } from './components/add-photo/add-photo.component';
 import { HttpClientModule } from '@angular/common/http';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgFlashMessagesModule } from 'ng-flash-messages';
 
+import { NavbarComponent } from './components/layouts/navbar/navbar.component';
+import { AuthComponent } from './components/auth/auth.component';
+import { SavedPhotoComponent } from './components/saved-photo/saved-photo.component';
+import { LovedPhotosComponent } from './components/loved-photos/loved-photos.component';
+import { MyPhotosComponent } from './components/my-photos/my-photos.component';
+import { MyUploadsComponent } from './components/my-uploads/my-uploads.component';
+import { AuthService } from './services/auth.service';
+
+const appRoutes: Routes = [
+  {path: '', component: PhotosComponent},
+  {path: 'auth', component: AuthComponent},
+  {path: 'saved', component: SavedPhotoComponent},
+  {path: 'loved', component: LovedPhotosComponent},
+  {path: 'my_photos', component: MyPhotosComponent},
+  {path: 'my_uploads', component: MyUploadsComponent}
+]
 
 @NgModule({
   declarations: [
     AppComponent,
     PhotosComponent,
     PhotoItemComponent,
-    AddPhotoComponent
+    AddPhotoComponent,
+    NavbarComponent,
+    AuthComponent,
+    SavedPhotoComponent,
+    LovedPhotosComponent,
+    MyPhotosComponent,
+    MyUploadsComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    RouterModule.forRoot(appRoutes),
+    NgFlashMessagesModule.forRoot()
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

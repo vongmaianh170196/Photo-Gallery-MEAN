@@ -1,0 +1,40 @@
+<p (click)="onLogout()" *ngIf="authService.isAuthenticated" class="clickable">
+    Logout
+</p>
+<div class="mt-4 mb-4">     
+    <p class="clickable" (click)="open(content)" *ngIf="!authService.isAuthenticated">Sign up</p>
+    <ng-template #content let-modal>
+        <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">Authentication</h4>
+        <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">            
+            <ng-flash-message></ng-flash-message>
+            <form>                
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" name="username" class="form-control" [(ngModel)]="username" required/>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" name="password" class="form-control" [(ngModel)]="password" required/>
+                </div>
+                <div class="file-field d-flex">
+                    <div class="btn btn-neutral">
+                      <span>Choose file</span>
+                      <input type="file" class="custom-file-input" (change)="fileUploadChange($event)" id="path">                      
+                    </div>
+                    <div class="form-control ml-2 w-50" *ngIf="avatar">{{avatar.name}}</div>
+                    <div class="form-control ml-2 w-50" *ngIf="!avatar">Upload photo...</div>
+                </div>
+            </form>
+            <p>Already has an account? Please click <span class="clickable sign-in-link" (click)="onLogin()">Sign in!</span></p>
+        </div>
+        <div class="modal-footer d-flex justify-content-between">
+            <button type="button" class="btn btn-positive" (click)="onRegister()">Sign up</button>
+            <button type="button" class="btn btn-neutral" (click)="modal.close('Cancel')">Cancel</button>
+        </div>
+    </ng-template>   
+</div>    

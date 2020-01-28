@@ -20,6 +20,7 @@ connectDb();
 
 //Define routes
 app.use('/api/photos', require('./routes/api/photo'));
+app.use('/api/user', require('./routes/api/user'));
 
 // Set static folder
     app.use(express.static(path.join(__dirname, 'public')));
