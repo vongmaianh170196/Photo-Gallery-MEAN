@@ -1,8 +1,15 @@
 <div class="card mx-2 my-2">
     <a href="{{photo.path}}" target="blank">
-      <img class="card-img-top" src="{{photo.path}}" alt="Card image cap">
-      <div class="card-body">
-        <p class="card-text">{{photo.caption}}</p>
-      </div>
     </a>
+    <img class="card-img-top" src="{{photo.path}}" alt="Card image cap">
+    <div class="card-body">
+      <div class="card-text">
+        <p>{{photo.title}}</p>
+        <p>by {{photo.by}}</p>
+      </div>
+      <div class="img-opts">
+        <p class="clickable" *ngIf="!saved()">Save</p>
+        <p class="clickable" *ngIf="!loved()">Love</p>
+      </div>
+    </div>
 </div>

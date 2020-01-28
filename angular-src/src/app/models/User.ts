@@ -1,6 +1,6 @@
 export class User{
     id: string;
     username:string;
-    loved: Array<object>;
-    save: Array<object>
+    loved: Array<{path:string}>;
+    saved: Array<{path:string}>
 }

@@ -17,6 +17,7 @@ export class AuthService {
   url:string='http://localhost:5000/api/user'
   isAuthenticated:boolean = false;
   token:string
+  loadedUser:any
   constructor(private http:HttpClient) { }
 
   loadUser(){
@@ -27,8 +28,7 @@ export class AuthService {
         'x-auth-token': this.token
       });
      
-      console.log(this.token)
-      return this.http.get(this.url + '/auth', {headers: headers}).subscribe(data => console.log(data));
+      return this.http.get(this.url + '/auth', {headers: headers}).subscribe(data => this.loadedUser = data );
     }
   }
 

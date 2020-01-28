@@ -50,6 +50,7 @@ export class AuthComponent implements OnInit {
         })
         this.authService.storeToken(data.token)
       })
+      this.authService.loadUser()
       this.modalService.dismissAll("close modal");
     }
   }

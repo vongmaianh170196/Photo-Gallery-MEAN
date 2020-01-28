@@ -5,6 +5,9 @@ const PhotoSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
+    by:{
+        type: String
+    },
     title:{
         type:String,
         // required: true
@@ -17,6 +20,11 @@ const PhotoSchema = new mongoose.Schema({
         required: true
     },
     lovedBy:[{
+        username:{
+            type: String
+        }
+    }],
+    savedBy:[{
         username:{
             type: String
         }

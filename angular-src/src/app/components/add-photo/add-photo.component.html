@@ -7,7 +7,11 @@
         </button>
         </div>
         <div class="modal-body">
-            <form>                
+            <form>         
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" name="title" class="form-control" [(ngModel)]="title"/>
+                </div>       
                 <div class="file-field d-flex">
                     <div class="btn btn-neutral">
                       <span>Choose file</span>
@@ -28,5 +32,5 @@
         </div>
     </ng-template>
     
-    <button class="btn btn-lg btn-positive" (click)="open(content)">Upload photo</button>
+    <button class="btn btn-lg btn-positive" (click)="open(content)" *ngIf="authService.isAuthenticated">Upload photo</button>
 </div>    

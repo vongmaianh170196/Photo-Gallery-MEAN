@@ -4,6 +4,7 @@ const config = require('config');
 const IncomingForm = require('formidable').IncomingForm
 const cloudinary = require("cloudinary");
 const Photo = require('../../Models/Photo');
+const User = require('../../Models/User');
 const auth = require('../../middleware/auth');
 
 
@@ -29,6 +30,7 @@ router.post('/upload', auth , async (req, res) => {
   try {
     let photo = {};
     var form = new IncomingForm()
+    let user = await User.findById(req.user.id)
     form.parse(req, function(err, fields, files) {
       if(fields.title === "") return res.status(400).json({msg: "Title cannot be empty"})
       photo.title = fields.title
@@ -38,7 +40,9 @@ router.post('/upload', auth , async (req, res) => {
         //save to database
         photo.path = result.secure_url;
         photo.user = req.user.id;
+        photo.by = user.username;
         photo.lovedBy = [];
+        photo.savedBy =[];
         //Save new photo
         let newPhoto = new Photo(photo)
         await newPhoto.save();
