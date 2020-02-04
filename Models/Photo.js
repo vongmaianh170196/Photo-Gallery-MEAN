@@ -19,14 +19,18 @@ const PhotoSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    lovedBy:[{
-        username:{
-            type: String
+    lovedBy:[   
+        {
+            user: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'user'
+            }
         }
-    }],
+    ],
     savedBy:[{
-        username:{
-            type: String
+        user: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'user'
         }
     }]
 });

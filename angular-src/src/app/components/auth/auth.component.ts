@@ -16,7 +16,7 @@ export class AuthComponent implements OnInit {
   constructor(private modalService: NgbModal, private authService: AuthService, private ngFlashMessage: NgFlashMessageService) { }
 
   ngOnInit() {
-    this.authService.loadUser();
+    this.authService.loadUser(this.authService.token);
   }
   open(content) {
     this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'})
@@ -48,9 +48,9 @@ export class AuthComponent implements OnInit {
           timeout: 3000,
           type: 'success'
         })
-        this.authService.storeToken(data.token)
+        this.authService.loadUser(data.token)
       })
-      this.authService.loadUser()
+      
       this.modalService.dismissAll("close modal");
     }
   }
@@ -68,8 +68,7 @@ export class AuthComponent implements OnInit {
       })
     }
     else{
-      this.authService.loginUser(user).subscribe(data => this.authService.storeToken(data.token))  
-      this.authService.loadUser();    
+      this.authService.loginUser(user).subscribe(data => this.authService.loadUser(data.token))  
       this.modalService.dismissAll("close modal");
     }
   }

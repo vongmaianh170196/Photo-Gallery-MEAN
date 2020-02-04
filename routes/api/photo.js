@@ -79,4 +79,70 @@ router.get('/my_photos',auth, async (req, res) => {
     console.log(error)
   }
 })
+
+//Save photo
+router.put('/saved/:photo_id', auth, async (req, res) => {
+  try {
+      const photo = await Photo.findById(req.params.photo_id)
+      if(photo.savedBy.filter(save => save.user === req.user.id).length > 0)  return res.status(400).json({msg: "Photo is already saved"})
+      photo.savedBy.unshift({user: req.user.id})
+      await photo.save();
+     
+      const user = await User.findById(req.user.id);
+      user.saved.unshift({photo: photo._id})
+      await user.save();
+      
+      res.json(photo.savedBy);
+  } catch (error) {
+      console.log(error)
+  }
+});
+//Unsave photo
+router.put('/unsave/:photo_id', auth, async (req, res) => {
+  try {
+      const photo = await Photo.findById(req.params.photo_id)
+      const removeIndex = photo.savedBy.map(save => save.user).indexOf(req.user.id);
+      if(removeIndex < 0) return res.status(400).json({msg: "Photo is not saved yet"})
+      photo.savedBy.splice(removeIndex, 1)
+      await photo.save();
+      
+      const user = await User.findById(req.user.id);
+      const unsavedIndex = user.saved.map(saved => saved.photo).indexOf(req.params.photo_id);
+      user.saved.splice(unsavedIndex, 1)
+      await user.save();
+      
+      res.json(photo.savedBy);
+  } catch (error) {
+      console.log(error)
+  }
+});
+
+
+//Love photo
+router.put('/loved/:photo_id', auth, async (req, res) => {
+  try {
+    const photo = await Photo.findById(req.params.photo_id)
+    if(photo.lovedBy.filter(love => love.user === req.user.id).length > 0)  return res.status(400).json({msg: "Photo is already loved"})
+    photo.lovedBy.unshift({user: req.user.id})
+    await photo.save();
+    res.json(photo.lovedBy)
+  } catch (error) {
+      console.log(error)
+  }
+})
+//Unlike
+router.put('/unlove/:photo_id', auth, async (req, res) => {
+  try {
+      const photo = await Photo.findById(req.params.photo_id)
+      const removeIndex = photo.lovedBy.map(love => love.user).indexOf(req.user.id);
+      if(removeIndex < 0) return res.status(400).json({msg: "Photo is not liked yet"})
+      photo.lovedBy.splice(removeIndex, 1)
+      await photo.save();
+      
+      
+      res.json(photo.lovedBy);
+  } catch (error) {
+      console.log(error)
+  }
+});
 module.exports = router;

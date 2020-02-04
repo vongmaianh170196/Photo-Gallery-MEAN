@@ -1,8 +1,8 @@
 export class Photo {
-    id:string;
+    _id:string;
     title:string;
     caption:string;
     path:string;
-    lovedBy:Array<{username:string}>;
-    savedBy:Array<{username:string}>;
+    lovedBy:Array<{user:string}>;
+    savedBy:Array<{user:string}>;
 }

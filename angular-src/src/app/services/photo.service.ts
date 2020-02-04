@@ -11,12 +11,28 @@ import { AuthService } from './auth.service';
 })
 export class PhotoService {
 
-  url:string='http://localhost:5000/api/photos'
+  urlPhoto:string='http://localhost:5000/api/photos';
+  urlUser:string = 'http://localhost:5000/api/user';
 
   constructor(private http:HttpClient, private authService: AuthService) { }
 
   getPhotos():Observable<Photo[]>{
-    return this.http.get<Photo[]>(this.url);
+    return this.http.get<Photo[]>(this.urlPhoto);
+  }
+
+  getMyUploads():Observable<Photo[]>{
+    const header = new HttpHeaders({
+      'x-auth-token': this.authService.token
+    })
+    //res.json(photos)
+    return this.http.get<Photo[]>(this.urlPhoto + `/${this.authService.loadedUser._id}`, {headers: header})
+  }
+
+  getSavedPhotos():Observable<Photo[]>{
+    const header = new HttpHeaders({
+      'x-auth-token': this.authService.token
+    })
+    return this.http.get<Photo[]>(this.urlUser + '/saved', {headers: header})
   }
 
   addPhoto(photo:Photo){
@@ -27,6 +43,6 @@ export class PhotoService {
     formData.append("caption", photo.caption);
     formData.append("path", photo.path);
     formData.append("title", photo.title)
-    return this.http.post<Photo>(this.url + "/upload", formData, {headers: headers});
+    return this.http.post<Photo>(this.urlPhoto + "/upload", formData, {headers: headers});
   }
 }

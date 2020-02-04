@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import {Photo} from '../../models/Photo'
 import { PhotoService } from 'src/app/services/photo.service';
 
@@ -19,7 +19,7 @@ export class PhotosComponent implements OnInit {
       this.showedPhotos = photos;
     })
   }
-
+  
   search(){
     let text = this.searchInput;
     this.showedPhotos = this.photos

@@ -17,18 +17,20 @@ export class AuthService {
   url:string='http://localhost:5000/api/user'
   isAuthenticated:boolean = false;
   token:string
-  loadedUser:any
+  loadedUser:User
   constructor(private http:HttpClient) { }
 
-  loadUser(){
-    this.token = localStorage.getItem('x-auth-token');
+  loadUser(token:string):User{
+    this.token = token;
     if(this.token){
       let headers = new HttpHeaders({
-        'COntent-type': 'application/json',
+        'Content-type': 'application/json',
         'x-auth-token': this.token
       });
      
-      return this.http.get(this.url + '/auth', {headers: headers}).subscribe(data => this.loadedUser = data );
+      this.http.get<User>(this.url + '/auth', {headers: headers}).subscribe(data => this.loadedUser = data)
+      this.isAuthenticated=true
+      return this.loadedUser;
     }
   }
 
@@ -40,16 +42,7 @@ export class AuthService {
       return true;
     }
   }
-  
-  storeToken(token:string){
-    localStorage.setItem('x-auth-token', token);
-    this.isAuthenticated = true;
-  }
-  logoutUser(){
-    localStorage.clear();
-    this.isAuthenticated = false;
-  }
-  registerUser(user):Observable<any>{
+  registerUser(user:any):Observable<any>{
     var formData = new FormData();
     formData.append("username", user.username);
     formData.append("password", user.password);
@@ -57,8 +50,13 @@ export class AuthService {
     return this.http.post(this.url + '/register', formData )
   } 
 
-  loginUser(user):Observable<any>{
+  loginUser(user:any):Observable<any>{
     return this.http.post(this.url + '/login', JSON.stringify(user), httpOptions);
   }
+ 
+  logoutUser(){
+    this.isAuthenticated = false;
+  }
+  
   
 }

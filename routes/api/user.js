@@ -168,51 +168,17 @@ async (req, res) => {
     
 });
 
-//Save photo
-router.put('/saved/:photo_id', auth, async (req, res) => {
+//Get saved photos 
+router.get('/saved', auth, async (req, res) => {
     try {
         const user = await User.findById(req.user.id);
-        const photo = await Photo.findById(req.params.photo_id)
-        user.saved.unshift({path: photo.path});
-        photo.savedBy.unshift({username: user.username})
-        await photo.save();
-        await user.save();
-        res.json(user.saved);
+        const photos = user.saved.map(async saved => {
+                            let photo = await Photo.findById(saved.photo);
+                            return photo.path;
+                        });
+        res.json(photos)
     } catch (error) {
         console.log(error)
-    }
-});
-//Get saved photos
-router.get('/:user_id/saved', async(req, res) => {
-    try {
-        const user = await User.findById(req.params.user_id);
-        res.json(user.saved)
-    } catch (error) {
-       console.log(error) 
-    }
-})
-
-//Love photo
-router.put('/loved/:photo_id', auth, async (req, res) => {
-    try {
-        const user = await User.findById(req.user.id);
-        const photo = await Photo.findById(req.params.photo_id)
-        user.loved.unshift({path: photo.path});
-        photo.lovedBy.unshift({username: user.username})
-        await photo.save();
-        await user.save();
-        res.json(user.loved);
-    } catch (error) {
-        console.log(error)
-    }
-})
-//Get liked photos
-router.get('/:user_id/loved', async(req, res) => {
-    try {
-        const user = await User.findById(req.params.user_id);
-        res.json(user.loved)
-    } catch (error) {
-       console.log(error) 
     }
 })
 module.exports = router;

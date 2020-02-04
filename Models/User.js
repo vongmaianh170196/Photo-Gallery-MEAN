@@ -12,19 +12,11 @@ const UserSchema = new mongoose.Schema({
     avatar: {
         type: String
     },
-    loved:[
-        {
-            path:{
-                type: String
-            }
+    saved: [{
+        photo: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'photo'
         }
-    ],
-    saved:[
-        {
-            path:{
-                type: String
-            }
-        }
-    ]
+    }]
 });
 module.exports = User = mongoose.model('user', UserSchema);

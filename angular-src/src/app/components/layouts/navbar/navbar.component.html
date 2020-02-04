@@ -7,7 +7,7 @@
         <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Menu</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">          
             <p ngbDropdownItem><app-auth></app-auth></p>       
-            <a [routerLink]="['/my_photos']" ngbDropdownItem *ngIf="authService.isAuthenticated">My album</a>  
+            <a [routerLink]="['/my_uploads']" ngbDropdownItem *ngIf="authService.isAuthenticated">My album</a>  
         </div>
       </div>
     </div>

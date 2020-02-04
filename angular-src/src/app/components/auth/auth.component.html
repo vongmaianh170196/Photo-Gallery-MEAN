@@ -2,7 +2,7 @@
     Logout
 </p>
 <div class="mt-4 mb-4">     
-    <p class="clickable" (click)="open(content)" *ngIf="!authService.isAuthenticated">Sign up</p>
+    <p class="clickable" (click)="open(content)" *ngIf="!authService.isAuthenticated">Sign up/Login</p>
     <ng-template #content let-modal>
         <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Authentication</h4>
