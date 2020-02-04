@@ -1,0 +1,41 @@
+/* Nav bar */
+.nav-bar{
+    background-color: #008080;
+    padding: 1.5em 2em 1.5em 2em;
+    font-weight: bold;
+}
+.menu-btn, .menu-btn:focus{
+    color: white;
+    background-color: transparent;
+    border: none;
+    outline-color: transparent;
+}
+.dropdown-menu{
+    padding: 0em;    
+    background-color: #008080;
+    border: 1px solid #e0ebeb;
+}
+.dropdown-item{
+    margin: 0em;
+    border-bottom: 1px solid #e0ebeb;
+    padding: 1em 1.5em .5em;
+    color: #e0ebeb;
+}
+.dropdown-item:active, .dropdown-item:hover{
+    color:#008080;
+    background-color:  #e0ebeb;
+}
+.auth-btn p{
+    margin-bottom: 0px;
+}
+.nav-section{
+    align-items: center;
+    display: flex;
+}
+.welcome.nav-section{
+    justify-content: center;
+}
+.menu.nav-section{
+    justify-content: flex-end;
+    font-size: 1.5em;
+}

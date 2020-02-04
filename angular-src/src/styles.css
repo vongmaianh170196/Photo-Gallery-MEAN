@@ -1,12 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
 body{
-    background-color: #d9f2e6;
+    background-color: #f0f5f5;
     font-family: Verdana,sans-serif;
 }
-.title{
-    color:#003300;
+.container{
+    max-width: 100%;
+}
+.welcome-title{
+    color: #e0ebeb;
     font-weight: bold;
+}
+.clickable{
+    cursor: pointer;
 }
 a, a:hover, a:active, a:visited{
     text-decoration: none;
@@ -26,6 +32,12 @@ a, a:hover, a:active, a:visited{
     color:#212529;
     border:1px solid #212529;
 }
+.search-input{
+    position: absolute;
+    top: 1.5em;
+    width: 20%;
+    right: 7em;
+}
 /*Cutom file input*/
 .custom-file-input{
     position: absolute;
@@ -34,13 +46,59 @@ a, a:hover, a:active, a:visited{
 
 .card{
     width: 20rem;
-    height: 18rem;
+    height: 20rem;
     padding: .25em;
-    background: #206040;
-    color: white;
+    margin:1em;
+    background-color: rgba(210, 224, 224, .75);
+    color: #151e1e;
 }
-p.card-text::first-letter{
+.card img{
+    height: calc(20rem - .75em);
+}
+.card .card-body{
+    text-align: left;
+    padding: 1em;
+    background-color: rgb(210, 224, 224);
+    min-height: 5rem;
+    transition:  transform 1s;
+    margin-top: -4.5rem;
+    visibility: hidden;   
+}
+.card:hover{
+    cursor:pointer;
+}
+.card:hover .card-body{
+    transform: translateY(-.5rem);
+    visibility: visible;
+    z-index: 1;
+    
+}
+p.card-title::first-letter{
     text-transform: uppercase;
-    font-size: 12pt;
+}
+p.card-title{
+    font-size: .85em;
+    font-weight: bold;
+    white-space: nowrap;
+    width: 10rem;
+    overflow: hidden;
     text-overflow: ellipsis;
+}
+.img-info{
+    display: flex;
+    justify-content: space-between;
+    font-size: .75em;
+}
+.img-opts{
+    display: flex;
+    justify-content: space-between;
+}
+.img-opts p{
+    margin: 0em 1em;
+}
+/* Photo flex list */
+.photo-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }

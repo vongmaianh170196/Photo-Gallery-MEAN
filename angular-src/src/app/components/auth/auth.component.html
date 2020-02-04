@@ -1,8 +1,9 @@
-<p (click)="onLogout()" *ngIf="authService.isAuthenticated" class="clickable">
-    Logout
-</p>
-<div class="mt-4 mb-4">     
-    <p class="clickable" (click)="open(content)" *ngIf="!authService.isAuthenticated">Sign up/Login</p>
+
+<div class="auth-btn">  
+    <p (click)="onLogout()" *ngIf="authService.isAuthenticated" class="clickable">
+        <i class="fas fa-sign-out-alt"></i> Logout
+    </p>   
+    <p class="clickable" (click)="open(content)" *ngIf="!authService.isAuthenticated"><i class="fas fa-sign-in-alt"></i> Login / Register</p>
     <ng-template #content let-modal>
         <div class="modal-header">
         <h4 class="modal-title" id="modal-basic-title">Authentication</h4>

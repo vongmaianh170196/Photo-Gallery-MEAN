@@ -1,13 +1,15 @@
-<div class="row">
-    <div class="col">
-        <a [routerLink]="['/']">Dashboard</a>
+<div class="row nav-bar">
+    <div class="col nav-section">
+        <a [routerLink]="['/']" class="logo"><i class="far fa-images"></i> MY GALLERY</a>
     </div>
-    <div class="col text-right">
+   
+    <div class="col menu nav-section">
       <div ngbDropdown class="d-inline-block">
-        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Menu</button>
+        <button class="menu-btn" id="dropdownBasic1" ngbDropdownToggle><i class="fas fa-bars"></i></button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">          
-            <p ngbDropdownItem><app-auth></app-auth></p>       
-            <a [routerLink]="['/my_uploads']" ngbDropdownItem *ngIf="authService.isAuthenticated">My album</a>  
+            <div ngbDropdownItem><app-auth></app-auth></div>       
+            <div ngbDropdownItem  *ngIf="authService.isAuthenticated"><a [routerLink]="['/my_uploads']"><i class="fas fa-caret-square-up"></i> My uploads</a></div>  
+            <div ngbDropdownItem  *ngIf="authService.isAuthenticated"><a [routerLink]="['/saved']"><i class="fas fa-folder-plus"></i> My saved</a></div>
         </div>
       </div>
     </div>
