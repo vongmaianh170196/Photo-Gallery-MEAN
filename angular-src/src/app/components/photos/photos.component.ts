@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import {Photo} from '../../models/Photo'
 import { PhotoService } from 'src/app/services/photo.service';
+import { NgFlashMessageService } from 'ng-flash-messages';
 
 @Component({
   selector: 'app-photos',
@@ -11,7 +12,7 @@ export class PhotosComponent implements OnInit {
   photos:Photo[];
   showedPhotos: Photo[];
   searchInput:string;
-  constructor(private photoService:PhotoService) { }
+  constructor(private photoService:PhotoService, private ngFlashMessage: NgFlashMessageService) { }
 
   ngOnInit() {
     this.photoService.getPhotos().subscribe(photos => {
@@ -32,6 +33,26 @@ export class PhotosComponent implements OnInit {
   }
 
   addPhoto(photo:Photo){        
-    this.photoService.addPhoto(photo).subscribe(res => this.photos.push(res))
+    this.photoService.addPhoto(photo).subscribe(res => {
+      this.showedPhotos.push(res);
+      this.ngFlashMessage.showFlashMessage({
+        messages: ["Photo is added"],
+        dismissible: true, 
+        timeout: 3000,
+        type: 'success'
+      })
+    })
+  }
+
+  deletePhoto(photo:Photo){
+    this.showedPhotos = this.showedPhotos.filter(pt => pt._id !== photo._id)  
+    console.log("Photos component: " + photo._id)
+    this.photoService.deletePhoto(photo).subscribe() 
+    // this.ngFlashMessage.showFlashMessage({
+    //   messages: ["Photo is removed"],
+    //   dismissible: true, 
+    //   timeout: 3000,
+    //   type: 'success'
+    // })
   }
 }

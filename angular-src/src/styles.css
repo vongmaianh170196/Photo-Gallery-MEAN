@@ -44,61 +44,14 @@ a, a:hover, a:active, a:visited{
     left: 1em;
 }
 
-.card{
-    width: 20rem;
-    height: 20rem;
-    padding: .25em;
-    margin:1em;
-    background-color: rgba(210, 224, 224, .75);
-    color: #151e1e;
-}
-.card img{
-    height: calc(20rem - .75em);
-}
-.card .card-body{
-    text-align: left;
-    padding: 1em;
-    background-color: rgb(210, 224, 224);
-    min-height: 5rem;
-    transition:  transform 1s;
-    margin-top: -4.5rem;
-    visibility: hidden;   
-}
-.card:hover{
-    cursor:pointer;
-}
-.card:hover .card-body{
-    transform: translateY(-.5rem);
-    visibility: visible;
-    z-index: 1;
-    
-}
-p.card-title::first-letter{
-    text-transform: uppercase;
-}
-p.card-title{
-    font-size: .85em;
-    font-weight: bold;
-    white-space: nowrap;
-    width: 10rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.img-info{
-    display: flex;
-    justify-content: space-between;
-    font-size: .75em;
-}
-.img-opts{
-    display: flex;
-    justify-content: space-between;
-}
-.img-opts p{
-    margin: 0em 1em;
-}
+
 /* Photo flex list */
 .photo-list{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+/* Modal */
+.modal-header, .modal-footer{
+    border: none;
 }

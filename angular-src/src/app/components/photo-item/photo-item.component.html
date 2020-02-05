@@ -1,19 +1,18 @@
 <div class="card">
-    <a href="{{photo.path}}" target="blank">
-    </a>
+    <button *ngIf="deletable()" (click)="onDeletePhoto(photo)" class="del-img-btn clickable"><i class="fas fa-trash"></i></button>
     <!-- Image card -->
     <img class="card-img-top" src="{{photo.path}}" alt="Card image cap"/>
     <div class="card-body">
       <div class="card-text">
-        <p (click)="open(content)" class="card-title">{{photo.title}}</p>        
+        <p (click)="openLargeModal(content)" class="card-title">{{photo.title}}</p>        
       </div>
       <div class="img-info">
         <div class="img-author"><p>by {{photo.by}}</p></div>
         <div class="img-opts">
-          <p class="clickable" *ngIf="!saved()" (click)="onSavePhoto()">Save  </p>
-          <p class="clickable saved" *ngIf="saved()" (click)="onUnsavePhoto()">Saved  </p>
-          <p class="clickable" *ngIf="!loved()" (click)="onLovePhoto()"><i class="fas fa-heart"></i> Loves</p>        
-          <p class="clickable loved" *ngIf="loved()" (click)="onUnsavePhoto()"><i class="fas fa-heart"></i>Loved</p>
+          <p class="clickable" *ngIf="!saved()" (click)="onSavePhoto()"><i class="fas fa-folder-plus"></i> Save  </p>
+          <p class="clickable saved" *ngIf="saved()" (click)="onUnsavePhoto()"><i class="fas fa-folder-plus"></i> Saved  </p>
+          <p class="clickable" *ngIf="!loved()" (click)="onLovePhoto()"><i class="fas fa-heart"></i> Love</p>        
+          <p class="clickable loved" *ngIf="loved()" (click)="onUnsavePhoto()"><i class="fas fa-heart"></i> Loved</p>
         </div>
       </div>
     </div>
@@ -21,7 +20,7 @@
     <div class="image-modal">
       <ng-template #content let-modal>
           <div class="modal-header">
-          <h4 class="modal-title" id="modal-basic-title">{{photo.title}}</h4>
+          <h4 class="modal-title card-title" id="modal-basic-title">{{photo.title}}</h4>
           <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
               <span aria-hidden="true">&times;</span>
           </button>
@@ -32,12 +31,12 @@
             <img class="card-img-top" src="{{photo.path}}" alt="Card image cap"/>
             <div class="card-body">
               <div class="card-text">
-                <p>Posted by {{photo.by}}</p>
-                <p>Description: {{photo.caption}}</p>
-                <p>Url: {{photo.path}}</p>              
+                <p><b>Posted by:</b> {{photo.by}}</p>
+                <p><b>Description:</b> {{photo.caption}}</p>
+                <p><b>Url:</b> {{photo.path}}</p>              
               </div>
-              <div class="img-opts">              
-                <p class="clickable"> <i class="fas fa-heart"></i> {{photo.savedBy.length}} Saves</p> 
+              <div class="img-opts-column">              
+                <p class="clickable"> <i class="fas fa-folder-plus"></i> {{photo.savedBy.length}} Saves</p> 
                 <p class="clickable"> <i class="fas fa-heart"></i> {{photo.lovedBy.length}} Loves</p>  
               </div>
             </div>

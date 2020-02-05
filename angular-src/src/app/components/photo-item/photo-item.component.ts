@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Photo } from 'src/app/models/Photo';
 import { AuthService } from 'src/app/services/auth.service';
 import { PhotoItemService } from 'src/app/services/photo-item.service';
@@ -11,23 +11,29 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class PhotoItemComponent implements OnInit {
   @Input() photo:Photo
+  @Output() deletePhoto: EventEmitter<Photo> = new EventEmitter();
 
   constructor(private authService: AuthService, private photoItemService: PhotoItemService, private modalService: NgbModal) { }
 
   ngOnInit() {
   }
-  open(content) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'})
+  openLargeModal(content) {
+    this.modalService.open(content, { size: 'lg' });
    
   }
+  deletable():Boolean{
+    if(this.authService.loadedUser){
+      return this.photo.user === this.authService.loadedUser._id;
+    }
+  }
   saved():Boolean{
-    if(this.authService.isAuthenticated){
+    if(this.authService.loadedUser){
       return this.photo.savedBy.findIndex(saved => saved.user === this.authService.loadedUser._id) >= 0
     }
     
   }
   loved():Boolean{
-    if(this.authService.isAuthenticated){
+    if(this.authService.loadedUser){
       return this.photo.lovedBy.findIndex(loved => loved.user === this.authService.loadedUser._id) >= 0
     }
     
@@ -52,5 +58,10 @@ export class PhotoItemComponent implements OnInit {
   }
   onUnlovePhoto(){
     return this.photoItemService.unlovePhoto(this.photo._id).subscribe(data => this.photo.lovedBy = data)
+  }
+  onDeletePhoto(photo){
+    console.log(photo)
+    console.log("emit photo item:" + photo._id)
+    this.deletePhoto.emit(photo)
   }
 }

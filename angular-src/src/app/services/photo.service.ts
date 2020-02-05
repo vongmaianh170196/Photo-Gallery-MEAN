@@ -45,4 +45,12 @@ export class PhotoService {
     formData.append("title", photo.title)
     return this.http.post<Photo>(this.urlPhoto + "/upload", formData, {headers: headers});
   }
+  deletePhoto(photo:Photo):Observable<Photo>{
+    var headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'x-auth-token': this.authService.token
+    })
+    console.log("Serivce: " + photo._id)
+    return this.http.delete<Photo>(this.urlPhoto + `/${photo._id}`, {headers: headers});
+  }
 }

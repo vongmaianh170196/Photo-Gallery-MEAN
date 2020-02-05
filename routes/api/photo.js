@@ -46,7 +46,7 @@ router.post('/upload', auth , async (req, res) => {
         //Save new photo
         let newPhoto = new Photo(photo)
         await newPhoto.save();
-        res.json(photo)
+        res.json(newPhoto)
       }, 
         {
           secure: true,
@@ -75,6 +75,25 @@ router.get('/my_photos',auth, async (req, res) => {
   try {
     let photos = await Photo.find({user: req.user.id});
     res.json(photos)
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+//Delete photto
+router.delete('/:photo_id', auth, async (req, res) => {
+  try {
+    
+    let photo = await Photo.findById(req.params.photo_id)
+   
+    //console.log(photo)
+    // console.log(photo.user)
+    // console.log(req.user.id)
+    // console.log(photo.user !== req.user.id)
+    //if(photo.user !== req.user.id) return res.status(400).json({msg: "You dont have the right to delete this photo"});
+    await photo.remove();
+    let photos = await Photo.find();  
+    res.json(photos);
   } catch (error) {
     console.log(error)
   }

@@ -2,6 +2,7 @@
     <input class="search-input form-control" placeholder="Search an image..." type="text" value="searchInput" name="searchInput" [(ngModel)]="searchInput" (ngModelChange)="search()" />
     <app-add-photo (addPhoto)="addPhoto($event)"></app-add-photo>
     <div class="photo-list">
-        <app-photo-item *ngFor="let photo of showedPhotos" [photo]="photo"></app-photo-item>
+        <ng-flash-message></ng-flash-message>
+        <app-photo-item *ngFor="let photo of showedPhotos" [photo]="photo" (deletePhoto)="deletePhoto($event)"></app-photo-item>
     </div>
 </div>

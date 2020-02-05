@@ -21,7 +21,12 @@
     padding: 1em 1.5em .5em;
     color: #e0ebeb;
 }
-.dropdown-item:active, .dropdown-item:hover{
+.dropdown-item a{
+    margin: 0em;
+    color: #e0ebeb;
+}
+.dropdown-item:active, .dropdown-item:hover,
+.dropdown-item a:active, .dropdown-item a:hover{
     color:#008080;
     background-color:  #e0ebeb;
 }

@@ -40,6 +40,6 @@ export class PhotoItemService {
      //res.json(photo.lovedBy(user_id))
     return this.http.put(this.url + `/unlove/${photo_id}`, null, {headers: this.getHttpOptions(this.authService.token)});
   }
-
+ 
 
 }
