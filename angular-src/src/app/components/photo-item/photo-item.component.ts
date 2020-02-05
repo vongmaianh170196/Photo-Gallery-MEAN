@@ -60,8 +60,6 @@ export class PhotoItemComponent implements OnInit {
     return this.photoItemService.unlovePhoto(this.photo._id).subscribe(data => this.photo.lovedBy = data)
   }
   onDeletePhoto(photo){
-    console.log(photo)
-    console.log("emit photo item:" + photo._id)
-    this.deletePhoto.emit(photo)
+   this.deletePhoto.emit(photo)
   }
 }

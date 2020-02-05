@@ -18,7 +18,7 @@ export class MyUploadsComponent implements OnInit {
   }
   addPhoto(photo:Photo){        
     this.photoService.addPhoto(photo).subscribe(res => {
-      this.photos.push(res);
+      this.photos.unshift(res);
       this.ngFlashMessage.showFlashMessage({
         messages: ["Photo is added"],
         dismissible: true, 
@@ -28,16 +28,15 @@ export class MyUploadsComponent implements OnInit {
     })
   }
 
-  // onDeletePhoto(photo_id:string){
-  //   this.photos.filter(photo => photo._id !== photo_id)
-  //   return this.photoService.deletePhoto(photo_id).subscribe(data => {
-  //     this.photos = data
-  //     this.ngFlashMessage.showFlashMessage({
-  //       messages: ["Photo is removed"],
-  //       dismissible: true, 
-  //       timeout: 3000,
-  //       type: 'success'
-  //     })
-  //   }) 
-  // }
+  deletePhoto(photo:Photo){
+    this.photos = this.photos.filter(pt => pt._id !== photo._id)  
+    this.photoService.deletePhoto(photo).subscribe(() => {
+        this.ngFlashMessage.showFlashMessage({
+        messages: ["Photo is removed"],
+        dismissible: true, 
+        timeout: 3000,
+        type: 'success'
+      })
+    }) 
+  }
 }

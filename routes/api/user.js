@@ -84,6 +84,7 @@ router.post('/register', async (req, res) => {
                 ); 
             }
             else{
+                newUser.avatar = config.get("defaultAvatar");
                 let register = new User(newUser)
                 await register.save();
                 //return jsonwebtoken
@@ -172,10 +173,12 @@ async (req, res) => {
 router.get('/saved', auth, async (req, res) => {
     try {
         const user = await User.findById(req.user.id);
-        const photos = user.saved.map(async saved => {
-                            let photo = await Photo.findById(saved.photo);
-                            return photo.path;
-                        });
+        const saves = user.saved;
+        let photos = [];
+        for(var i=0; i<saves.length; i++){
+            let photo = await Photo.findById(saves[i].photo)
+            photos.push(photo)
+        }
         res.json(photos)
     } catch (error) {
         console.log(error)

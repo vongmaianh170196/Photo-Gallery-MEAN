@@ -6,6 +6,7 @@ body{
 }
 .container{
     max-width: 100%;
+    min-height: calc(100vh - 86px - 86px);
 }
 .welcome-title{
     color: #e0ebeb;

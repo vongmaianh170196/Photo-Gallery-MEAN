@@ -4,6 +4,12 @@
     padding: 1.5em 2em 1.5em 2em;
     font-weight: bold;
 }
+.avatar{
+    height: 1.5em;
+    width: 1.5em;
+    margin: 0em .5em;
+    border-radius: 50%;
+}
 .menu-btn, .menu-btn:focus{
     color: white;
     background-color: transparent;

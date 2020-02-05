@@ -12,7 +12,7 @@
           <p class="clickable" *ngIf="!saved()" (click)="onSavePhoto()"><i class="fas fa-folder-plus"></i> Save  </p>
           <p class="clickable saved" *ngIf="saved()" (click)="onUnsavePhoto()"><i class="fas fa-folder-plus"></i> Saved  </p>
           <p class="clickable" *ngIf="!loved()" (click)="onLovePhoto()"><i class="fas fa-heart"></i> Love</p>        
-          <p class="clickable loved" *ngIf="loved()" (click)="onUnsavePhoto()"><i class="fas fa-heart"></i> Loved</p>
+          <p class="clickable loved" *ngIf="loved()" (click)="onUnlovePhoto()"><i class="fas fa-heart"></i> Loved</p>
         </div>
       </div>
     </div>

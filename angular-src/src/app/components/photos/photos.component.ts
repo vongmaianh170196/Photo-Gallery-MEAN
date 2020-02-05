@@ -25,7 +25,7 @@ export class PhotosComponent implements OnInit {
     let text = this.searchInput;
     this.showedPhotos = this.photos
     if(text !== ""){
-      this.showedPhotos = this.showedPhotos.filter(photo => photo.caption.toLocaleLowerCase().indexOf(text.toLocaleLowerCase()) >= 0);
+      this.showedPhotos = this.showedPhotos.filter(photo => photo.title.toLocaleLowerCase().indexOf(text.toLocaleLowerCase()) >= 0);
     }
     else{
       this.ngOnInit()
@@ -34,7 +34,7 @@ export class PhotosComponent implements OnInit {
 
   addPhoto(photo:Photo){        
     this.photoService.addPhoto(photo).subscribe(res => {
-      this.showedPhotos.push(res);
+      this.showedPhotos.unshift(res);
       this.ngFlashMessage.showFlashMessage({
         messages: ["Photo is added"],
         dismissible: true, 
@@ -46,13 +46,14 @@ export class PhotosComponent implements OnInit {
 
   deletePhoto(photo:Photo){
     this.showedPhotos = this.showedPhotos.filter(pt => pt._id !== photo._id)  
-    console.log("Photos component: " + photo._id)
-    this.photoService.deletePhoto(photo).subscribe() 
-    // this.ngFlashMessage.showFlashMessage({
-    //   messages: ["Photo is removed"],
-    //   dismissible: true, 
-    //   timeout: 3000,
-    //   type: 'success'
-    // })
+    this.photoService.deletePhoto(photo).subscribe(() => {
+        this.ngFlashMessage.showFlashMessage({
+        messages: ["Photo is removed"],
+        dismissible: true, 
+        timeout: 3000,
+        type: 'success'
+      })
+    }) 
+    
   }
 }

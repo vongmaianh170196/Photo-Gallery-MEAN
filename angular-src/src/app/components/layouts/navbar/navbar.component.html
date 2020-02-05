@@ -5,7 +5,10 @@
    
     <div class="col menu nav-section">
       <div ngbDropdown class="d-inline-block">
-        <button class="menu-btn" id="dropdownBasic1" ngbDropdownToggle><i class="fas fa-bars"></i></button>
+        <button class="menu-btn" id="dropdownBasic1" ngbDropdownToggle>
+          <i *ngIf="!authService.isAuthenticated" class="fas fa-bars"></i>
+          <img *ngIf="authService.isAuthenticated && authService.loadedUser && authService.loadedUser.avatar !== ''" src="{{authService.loadedUser.avatar}}" class="avatar"/>        
+        </button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">          
             <div ngbDropdownItem><app-auth></app-auth></div>       
             <div ngbDropdownItem  *ngIf="authService.isAuthenticated"><a [routerLink]="['/my_uploads']"><i class="fas fa-caret-square-up"></i> My uploads</a></div>  

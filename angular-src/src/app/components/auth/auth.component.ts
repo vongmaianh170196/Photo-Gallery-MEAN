@@ -74,5 +74,8 @@ export class AuthComponent implements OnInit {
   }
   onLogout(){
     this.authService.logoutUser();
+    this.username="";
+    this.password="";
+    this.avatar="";
   }
 }
