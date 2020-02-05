@@ -32,7 +32,7 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div>\r\n    <app-photos></app-photos>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-navbar></app-navbar>\r\n<div class=\"container\">\r\n    <router-outlet></router-outlet>\r\n</div>\r\n<div class=\"footer\">\r\n    <p><a class=\"portfolio-link\" href=\"http://www.im-anh.com/\" target=\"_blank\">Anh Vo.</a> 2020</p>\r\n</div>");
 
 /***/ }),
 
@@ -45,7 +45,46 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"mt-4 mb-4\">\r\n    <ng-template #content let-modal>\r\n        <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\" id=\"modal-basic-title\">Upload a photo</h4>\r\n        <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"modal.dismiss('Cross click')\">\r\n            <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n            <form enctype=\"multipart/form-data\">                \r\n                <div class=\"file-field d-flex\">\r\n                    <div class=\"btn btn-neutral\">\r\n                      <span>Choose file</span>\r\n                      <input type=\"file\" class=\"custom-file-input\" (change)=\"fileUploadChange($event)\" id=\"path\">                      \r\n                    </div>\r\n                    <div class=\"form-control ml-2 w-50\" *ngIf=\"path\">{{path.name}}</div>\r\n                    <div class=\"form-control ml-2 w-50\" *ngIf=\"!path\">Upload photo...</div>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <label>Caption</label>\r\n                    <input type=\"text\" name=\"caption\" class=\"form-control\" [(ngModel)]=\"caption\"/>\r\n                </div>\r\n            </form>\r\n        </div>\r\n        <div class=\"modal-footer d-flex justify-content-between\">\r\n            <button type=\"button\" class=\"btn btn-positive\" (click)=\"onSubmit()\">Upload</button>\r\n            <button type=\"button\" class=\"btn btn-neutral\" (click)=\"modal.close('Cancel')\">Cancel</button>\r\n        </div>\r\n    </ng-template>\r\n    \r\n    <button class=\"btn btn-lg btn-positive\" (click)=\"open(content)\">Upload photo</button>\r\n</div>    \r\n<!-- <div>\r\n    <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" data-target=\"#uploadImage\">\r\n        Upload a photo\r\n    </button>      \r\n    <div class=\"modal fade\" id=\"uploadImage\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"UploadImage\" aria-hidden=\"true\">\r\n        <div class=\"modal-dialog modal-dialog-centered\" role=\"document\">\r\n            <div class=\"modal-content\">\r\n            <div class=\"modal-header\">\r\n                <h5 class=\"modal-title\" id=\"exampleModalLongTitle\">Upload a photo</h5>\r\n                <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-label=\"Close\">\r\n                    <span aria-hidden=\"true\">&times;</span>\r\n                </button>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n                <form enctype=\"multipart/form-data\">\r\n                    <div class=\"custom-file\">\r\n                        <input type=\"file\" class=\"custom-file-input\" (change)=\"fileUploadChange($event)\" id=\"path\">\r\n                    </div>\r\n                    <label>Caption</label>\r\n                    <input type=\"text\" name=\"caption\" class=\"form-control\" [(ngModel)]=\"caption\"/>\r\n                </form>\r\n            </div>\r\n            <div class=\"modal-footer\">\r\n                <button type=\"button\" class=\"btn btn-secondary\" data-dismiss=\"modal\">Cancel</button>\r\n                <button type=\"button\" (click)=\"onSubmit()\" class=\"btn btn-primary\">Upload</button>\r\n            </div>\r\n            </div>\r\n        </div>\r\n    </div>\r\n</div> -->");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"upload-section\">\r\n    <ng-template #content let-modal>\r\n        <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\" id=\"modal-basic-title\">Upload a photo</h4>\r\n        <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"modal.dismiss('Cross click')\">\r\n            <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n        </div>\r\n        <div class=\"modal-body\">\r\n            <form>         \r\n                <div class=\"form-group\">\r\n                    <label>Title</label>\r\n                    <input type=\"text\" name=\"title\" class=\"form-control\" [(ngModel)]=\"title\"/>\r\n                </div>       \r\n                <div class=\"file-field d-flex\">\r\n                    <div class=\"btn btn-neutral\">\r\n                      <span>Choose file</span>\r\n                      <input type=\"file\" class=\"custom-file-input\" (change)=\"fileUploadChange($event)\" id=\"path\">                      \r\n                    </div>\r\n                    <div class=\"form-control ml-2 w-50\" *ngIf=\"path\">{{path.name}}</div>\r\n                    <div class=\"form-control ml-2 w-50\" *ngIf=\"!path\">Upload photo...</div>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <label>Caption</label>\r\n                    <input type=\"text\" name=\"caption\" class=\"form-control\" [(ngModel)]=\"caption\"/>\r\n                </div>\r\n            </form>\r\n        </div>\r\n        <div class=\"modal-footer d-flex justify-content-between\">\r\n            <button type=\"button\" class=\"btn btn-positive\" (click)=\"onSubmit()\">Upload</button>\r\n            <button type=\"button\" class=\"btn btn-neutral\" (click)=\"modal.close('Cancel')\">Cancel</button>\r\n        </div>\r\n    </ng-template>\r\n    \r\n    <button class=\"btn btn-lg btn-positive\" (click)=\"open(content)\" *ngIf=\"authService.isAuthenticated\">Upload photo</button>\r\n</div>    \r\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/auth/auth.component.html":
+/*!*******************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/auth/auth.component.html ***!
+  \*******************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\r\n<div class=\"auth-btn\">  \r\n    <p (click)=\"onLogout()\" *ngIf=\"authService.isAuthenticated\" class=\"clickable\">\r\n        <i class=\"fas fa-sign-out-alt\"></i> Logout\r\n    </p>   \r\n    <p class=\"clickable\" (click)=\"open(content)\" *ngIf=\"!authService.isAuthenticated\"><i class=\"fas fa-sign-in-alt\"></i> Login / Register</p>\r\n    <ng-template #content let-modal>\r\n        <div class=\"modal-header\">\r\n        <h4 class=\"modal-title\" id=\"modal-basic-title\">Authentication</h4>\r\n        <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"modal.dismiss('Cross click')\">\r\n            <span aria-hidden=\"true\">&times;</span>\r\n        </button>\r\n        </div>\r\n        <div class=\"modal-body\">            \r\n            <ng-flash-message></ng-flash-message>\r\n            <form>                \r\n                <div class=\"form-group\">\r\n                    <label>Username</label>\r\n                    <input type=\"text\" name=\"username\" class=\"form-control\" [(ngModel)]=\"username\" required/>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <label>Password</label>\r\n                    <input type=\"password\" name=\"password\" class=\"form-control\" [(ngModel)]=\"password\" required/>\r\n                </div>\r\n                <div class=\"file-field d-flex\">\r\n                    <div class=\"btn btn-neutral\">\r\n                      <span>Choose file</span>\r\n                      <input type=\"file\" class=\"custom-file-input\" (change)=\"fileUploadChange($event)\" id=\"path\">                      \r\n                    </div>\r\n                    <div class=\"form-control ml-2 w-50\" *ngIf=\"avatar\">{{avatar.name}}</div>\r\n                    <div class=\"form-control ml-2 w-50\" *ngIf=\"!avatar\">Upload photo...</div>\r\n                </div>\r\n            </form>\r\n            <p class=\"sign-in\">Already has an account? Please click <span class=\"clickable sign-in-link\" (click)=\"onLogin()\">Sign in!</span></p>\r\n        </div>\r\n        <div class=\"modal-footer d-flex justify-content-between\">\r\n            <button type=\"button\" class=\"btn btn-positive\" (click)=\"onRegister()\">Sign up</button>\r\n            <button type=\"button\" class=\"btn btn-neutral\" (click)=\"modal.close('Cancel')\">Cancel</button>\r\n        </div>\r\n    </ng-template>   \r\n</div>    \r\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/layouts/navbar/navbar.component.html":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/layouts/navbar/navbar.component.html ***!
+  \*******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row nav-bar\">\r\n    <div class=\"col nav-section\">\r\n        <a [routerLink]=\"['/']\" class=\"logo\"><i class=\"far fa-images\"></i> MY GALLERY</a>\r\n    </div>\r\n   \r\n    <div class=\"col menu nav-section\">\r\n      <div ngbDropdown class=\"d-inline-block\">\r\n        <button class=\"menu-btn\" id=\"dropdownBasic1\" ngbDropdownToggle>\r\n          <i *ngIf=\"!authService.isAuthenticated\" class=\"fas fa-bars\"></i>\r\n          <img *ngIf=\"authService.isAuthenticated && authService.loadedUser && authService.loadedUser.avatar !== ''\" src=\"{{authService.loadedUser.avatar}}\" class=\"avatar\"/>        \r\n        </button>\r\n        <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\">          \r\n            <div ngbDropdownItem><app-auth></app-auth></div>       \r\n            <div ngbDropdownItem  *ngIf=\"authService.isAuthenticated\"><a [routerLink]=\"['/my_uploads']\"><i class=\"fas fa-caret-square-up\"></i> My uploads</a></div>  \r\n            <div ngbDropdownItem  *ngIf=\"authService.isAuthenticated\"><a [routerLink]=\"['/saved']\"><i class=\"fas fa-folder-plus\"></i> My saved</a></div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n</div>\r\n  ");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/my-uploads/my-uploads.component.html":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/my-uploads/my-uploads.component.html ***!
+  \*******************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"mx-auto w-100 mt-5 mb-5 justify-content-center text-center container-fluid\">\r\n    <h2 class=\"title\">My Uploads</h2>\r\n    <app-add-photo (addPhoto)=\"addPhoto($event)\"></app-add-photo>\r\n    <ng-flash-message></ng-flash-message>\r\n    <div class=\"photo-list d-flex justify-content-center flex-wrap\">\r\n        <app-photo-item *ngFor=\"let photo of photos\" [photo]=\"photo\" (deletePhoto)=\"deletePhoto($event)\"></app-photo-item>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -58,7 +97,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card mx-2 my-2\">\r\n    <a href=\"{{photo.path}}\" target=\"blank\">\r\n      <img class=\"card-img-top\" src=\"{{photo.path}}\" alt=\"Card image cap\">\r\n      <div class=\"card-body\">\r\n        <p class=\"card-text\">{{photo.caption}}</p>\r\n      </div>\r\n    </a>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"card\">\r\n    <button *ngIf=\"deletable()\" (click)=\"onDeletePhoto(photo)\" class=\"del-img-btn clickable\"><i class=\"fas fa-trash\"></i></button>\r\n    <!-- Image card -->\r\n    <img class=\"card-img-top\" src=\"{{photo.path}}\" alt=\"Card image cap\"/>\r\n    <div class=\"card-body\">\r\n      <div class=\"card-text\">\r\n        <p (click)=\"openLargeModal(content)\" class=\"card-title\">{{photo.title}}</p>        \r\n      </div>\r\n      <div class=\"img-info\">\r\n        <div class=\"img-author\"><p>by {{photo.by}}</p></div>\r\n        <div class=\"img-opts\">\r\n          <p class=\"clickable\" *ngIf=\"!saved()\" (click)=\"onSavePhoto()\"><i class=\"fas fa-folder-plus\"></i> Save  </p>\r\n          <p class=\"clickable saved\" *ngIf=\"saved()\" (click)=\"onUnsavePhoto()\"><i class=\"fas fa-folder-plus\"></i> Saved  </p>\r\n          <p class=\"clickable\" *ngIf=\"!loved()\" (click)=\"onLovePhoto()\"><i class=\"fas fa-heart\"></i> Love</p>        \r\n          <p class=\"clickable loved\" *ngIf=\"loved()\" (click)=\"onUnlovePhoto()\"><i class=\"fas fa-heart\"></i> Loved</p>\r\n        </div>\r\n      </div>\r\n    </div>\r\n    <!-- Image Modal -->\r\n    <div class=\"image-modal\">\r\n      <ng-template #content let-modal>\r\n          <div class=\"modal-header\">\r\n          <h4 class=\"modal-title card-title\" id=\"modal-basic-title\">{{photo.title}}</h4>\r\n          <button type=\"button\" class=\"close\" aria-label=\"Close\" (click)=\"modal.dismiss('Cross click')\">\r\n              <span aria-hidden=\"true\">&times;</span>\r\n          </button>\r\n          </div>\r\n          <div class=\"modal-body\">            \r\n          </div>\r\n          <div class=\"modal-footer d-flex justify-content-between\">\r\n            <img class=\"card-img-top\" src=\"{{photo.path}}\" alt=\"Card image cap\"/>\r\n            <div class=\"card-body\">\r\n              <div class=\"card-text\">\r\n                <p><b>Posted by:</b> {{photo.by}}</p>\r\n                <p><b>Description:</b> {{photo.caption}}</p>\r\n                <p><b>Url:</b> {{photo.path}}</p>              \r\n              </div>\r\n              <div class=\"img-opts-column\">              \r\n                <p class=\"clickable\"> <i class=\"fas fa-folder-plus\"></i> {{photo.savedBy.length}} Saves</p> \r\n                <p class=\"clickable\"> <i class=\"fas fa-heart\"></i> {{photo.lovedBy.length}} Loves</p>  \r\n              </div>\r\n            </div>\r\n          </div>\r\n      </ng-template> \r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -71,7 +110,20 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"mx-auto w-100 mt-5 mb-5 justify-content-center text-center container-fluid\">\r\n    <h2 class=\"title\">MY GALLERY</h2>\r\n    <input placeholder=\"Search an image...\" type=\"text\" value=\"searchInput\" name=\"searchInput\" [(ngModel)]=\"searchInput\" (ngModelChange)=\"search()\" class=\"form-control\"/>\r\n    <app-add-photo (addPhoto)=\"addPhoto($event)\"></app-add-photo>\r\n    <div class=\"photo-list d-flex justify-content-center flex-wrap\">\r\n        <app-photo-item *ngFor=\"let photo of showedPhotos\" [photo]=\"photo\"></app-photo-item>\r\n    </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"mx-auto w-100 mt-5 mb-5 justify-content-center container-fluid\">\r\n    <input class=\"search-input form-control\" placeholder=\"Search an image...\" type=\"text\" value=\"searchInput\" name=\"searchInput\" [(ngModel)]=\"searchInput\" (ngModelChange)=\"search()\" />\r\n    <app-add-photo (addPhoto)=\"addPhoto($event)\"></app-add-photo>\r\n    <ng-flash-message></ng-flash-message>\r\n    <div class=\"photo-list\">        \r\n        <app-photo-item *ngFor=\"let photo of showedPhotos\" [photo]=\"photo\" (deletePhoto)=\"deletePhoto($event)\"></app-photo-item>\r\n    </div>\r\n</div>");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/saved-photo/saved-photo.component.html":
+/*!*********************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/saved-photo/saved-photo.component.html ***!
+  \*********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"mx-auto w-100 mt-5 mb-5 justify-content-center text-center container-fluid\">\r\n    <h2 class=\"title\">My Saved Photos</h2>\r\n    <div class=\"photo-list\">\r\n        <app-photo-item *ngFor=\"let photo of photos\" [photo]=\"photo\"></app-photo-item>\r\n    </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -313,7 +365,7 @@ function __importDefault(mod) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".footer{\r\n    border-top: 1px solid #008080;\r\n    margin: 1em 4em;\r\n    padding: 1em;\r\n}\r\n.footer p, .portfolio-link, .portfolio-link:hover, .portfolio-link:active{\r\n    color:#008080;\r\n    font-weight: bold;\r\n    text-decoration: none;\r\n    text-align: center;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvYXBwLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSw2QkFBNkI7SUFDN0IsZUFBZTtJQUNmLFlBQVk7QUFDaEI7QUFDQTtJQUNJLGFBQWE7SUFDYixpQkFBaUI7SUFDakIscUJBQXFCO0lBQ3JCLGtCQUFrQjtBQUN0QiIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmZvb3RlcntcclxuICAgIGJvcmRlci10b3A6IDFweCBzb2xpZCAjMDA4MDgwO1xyXG4gICAgbWFyZ2luOiAxZW0gNGVtO1xyXG4gICAgcGFkZGluZzogMWVtO1xyXG59XHJcbi5mb290ZXIgcCwgLnBvcnRmb2xpby1saW5rLCAucG9ydGZvbGlvLWxpbms6aG92ZXIsIC5wb3J0Zm9saW8tbGluazphY3RpdmV7XHJcbiAgICBjb2xvcjojMDA4MDgwO1xyXG4gICAgZm9udC13ZWlnaHQ6IGJvbGQ7XHJcbiAgICB0ZXh0LWRlY29yYXRpb246IG5vbmU7XHJcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XHJcbn0iXX0= */");
 
 /***/ }),
 
@@ -362,12 +414,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _components_photos_photos_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/photos/photos.component */ "./src/app/components/photos/photos.component.ts");
-/* harmony import */ var _components_photo_item_photo_item_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/photo-item/photo-item.component */ "./src/app/components/photo-item/photo-item.component.ts");
-/* harmony import */ var _components_add_photo_add_photo_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/add-photo/add-photo.component */ "./src/app/components/add-photo/add-photo.component.ts");
-/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _components_photos_photos_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/photos/photos.component */ "./src/app/components/photos/photos.component.ts");
+/* harmony import */ var _components_photo_item_photo_item_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/photo-item/photo-item.component */ "./src/app/components/photo-item/photo-item.component.ts");
+/* harmony import */ var _components_add_photo_add_photo_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/add-photo/add-photo.component */ "./src/app/components/add-photo/add-photo.component.ts");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ng-flash-messages */ "./node_modules/ng-flash-messages/ng-flash-messages.umd.js");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(ng_flash_messages__WEBPACK_IMPORTED_MODULE_11__);
+/* harmony import */ var _components_layouts_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./components/layouts/navbar/navbar.component */ "./src/app/components/layouts/navbar/navbar.component.ts");
+/* harmony import */ var _components_auth_auth_component__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./components/auth/auth.component */ "./src/app/components/auth/auth.component.ts");
+/* harmony import */ var _components_saved_photo_saved_photo_component__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./components/saved-photo/saved-photo.component */ "./src/app/components/saved-photo/saved-photo.component.ts");
+/* harmony import */ var _components_my_uploads_my_uploads_component__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./components/my-uploads/my-uploads.component */ "./src/app/components/my-uploads/my-uploads.component.ts");
+/* harmony import */ var _services_auth_service__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./services/auth.service */ "./src/app/services/auth.service.ts");
 
 
 
@@ -378,24 +438,43 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
+const appRoutes = [
+    { path: '', component: _components_photos_photos_component__WEBPACK_IMPORTED_MODULE_6__["PhotosComponent"] },
+    { path: 'auth', component: _components_auth_auth_component__WEBPACK_IMPORTED_MODULE_13__["AuthComponent"] },
+    { path: 'saved', component: _components_saved_photo_saved_photo_component__WEBPACK_IMPORTED_MODULE_14__["SavedPhotoComponent"] },
+    { path: 'my_uploads', component: _components_my_uploads_my_uploads_component__WEBPACK_IMPORTED_MODULE_15__["MyUploadsComponent"] }
+];
 let AppModule = class AppModule {
 };
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
-            _components_photos_photos_component__WEBPACK_IMPORTED_MODULE_5__["PhotosComponent"],
-            _components_photo_item_photo_item_component__WEBPACK_IMPORTED_MODULE_6__["PhotoItemComponent"],
-            _components_add_photo_add_photo_component__WEBPACK_IMPORTED_MODULE_7__["AddPhotoComponent"]
+            _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
+            _components_photos_photos_component__WEBPACK_IMPORTED_MODULE_6__["PhotosComponent"],
+            _components_photo_item_photo_item_component__WEBPACK_IMPORTED_MODULE_7__["PhotoItemComponent"],
+            _components_add_photo_add_photo_component__WEBPACK_IMPORTED_MODULE_8__["AddPhotoComponent"],
+            _components_layouts_navbar_navbar_component__WEBPACK_IMPORTED_MODULE_12__["NavbarComponent"],
+            _components_auth_auth_component__WEBPACK_IMPORTED_MODULE_13__["AuthComponent"],
+            _components_saved_photo_saved_photo_component__WEBPACK_IMPORTED_MODULE_14__["SavedPhotoComponent"],
+            _components_my_uploads_my_uploads_component__WEBPACK_IMPORTED_MODULE_15__["MyUploadsComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
-            _angular_common_http__WEBPACK_IMPORTED_MODULE_8__["HttpClientModule"],
+            _angular_common_http__WEBPACK_IMPORTED_MODULE_9__["HttpClientModule"],
             _angular_forms__WEBPACK_IMPORTED_MODULE_3__["FormsModule"],
-            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_9__["NgbModule"]
+            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_10__["NgbModule"],
+            _angular_router__WEBPACK_IMPORTED_MODULE_4__["RouterModule"].forRoot(appRoutes),
+            ng_flash_messages__WEBPACK_IMPORTED_MODULE_11__["NgFlashMessagesModule"].forRoot()
         ],
-        providers: [],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
+        providers: [_services_auth_service__WEBPACK_IMPORTED_MODULE_16__["AuthService"]],
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
     })
 ], AppModule);
 
@@ -412,7 +491,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvYWRkLXBob3RvL2FkZC1waG90by5jb21wb25lbnQuY3NzIn0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".upload-section{\r\n    text-align: left;\r\n    margin: 1.5em 4em;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9hZGQtcGhvdG8vYWRkLXBob3RvLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxnQkFBZ0I7SUFDaEIsaUJBQWlCO0FBQ3JCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9hZGQtcGhvdG8vYWRkLXBob3RvLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudXBsb2FkLXNlY3Rpb257XHJcbiAgICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG4gICAgbWFyZ2luOiAxLjVlbSA0ZW07XHJcbn0iXX0= */");
 
 /***/ }),
 
@@ -429,12 +508,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
+/* harmony import */ var src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/auth.service */ "./src/app/services/auth.service.ts");
+
 
 
 
 let AddPhotoComponent = class AddPhotoComponent {
-    constructor(modalService) {
+    constructor(modalService, authService) {
         this.modalService = modalService;
+        this.authService = authService;
         this.addPhoto = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
     }
     ngOnInit() {
@@ -445,10 +527,12 @@ let AddPhotoComponent = class AddPhotoComponent {
     onSubmit() {
         const photo = {
             caption: this.caption,
+            title: this.title,
             path: this.path
         };
         this.addPhoto.emit(photo);
         this.modalService.dismissAll("close modal");
+        this.title = '';
         this.path = '';
         this.caption = '';
     }
@@ -457,7 +541,8 @@ let AddPhotoComponent = class AddPhotoComponent {
     }
 };
 AddPhotoComponent.ctorParameters = () => [
-    { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbModal"] }
+    { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbModal"] },
+    { type: src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] }
 ];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()
@@ -474,6 +559,259 @@ AddPhotoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 /***/ }),
 
+/***/ "./src/app/components/auth/auth.component.css":
+/*!****************************************************!*\
+  !*** ./src/app/components/auth/auth.component.css ***!
+  \****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".sign-in-link{\r\n    color: darkgreen;\r\n    font-weight: bold;\r\n    /* text-decoration: underline; */\r\n    padding: .15em;\r\n    border-bottom: 1px solid black;\r\n}\r\n.sign-in{\r\n    margin-top: 1rem;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9hdXRoL2F1dGguY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGdCQUFnQjtJQUNoQixpQkFBaUI7SUFDakIsZ0NBQWdDO0lBQ2hDLGNBQWM7SUFDZCw4QkFBOEI7QUFDbEM7QUFDQTtJQUNJLGdCQUFnQjtBQUNwQiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvYXV0aC9hdXRoLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIuc2lnbi1pbi1saW5re1xyXG4gICAgY29sb3I6IGRhcmtncmVlbjtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gICAgLyogdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7ICovXHJcbiAgICBwYWRkaW5nOiAuMTVlbTtcclxuICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCBibGFjaztcclxufVxyXG4uc2lnbi1pbntcclxuICAgIG1hcmdpbi10b3A6IDFyZW07XHJcbn0iXX0= */");
+
+/***/ }),
+
+/***/ "./src/app/components/auth/auth.component.ts":
+/*!***************************************************!*\
+  !*** ./src/app/components/auth/auth.component.ts ***!
+  \***************************************************/
+/*! exports provided: AuthComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthComponent", function() { return AuthComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
+/* harmony import */ var src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ng-flash-messages */ "./node_modules/ng-flash-messages/ng-flash-messages.umd.js");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(ng_flash_messages__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
+
+
+
+
+
+let AuthComponent = class AuthComponent {
+    constructor(modalService, authService, ngFlashMessage, router) {
+        this.modalService = modalService;
+        this.authService = authService;
+        this.ngFlashMessage = ngFlashMessage;
+        this.router = router;
+    }
+    ngOnInit() {
+        this.authService.loadUser(this.authService.token);
+    }
+    open(content) {
+        this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' });
+    }
+    fileUploadChange(event) {
+        this.avatar = event.target.files[0];
+    }
+    onRegister() {
+        const user = {
+            username: this.username,
+            password: this.password,
+            avatar: this.avatar
+        };
+        if (!this.authService.validateInput(user)) {
+            this.ngFlashMessage.showFlashMessage({
+                messages: ["Please fill in all the required fields"],
+                dismissible: true,
+                timeout: 3000,
+                type: 'danger'
+            });
+        }
+        else {
+            this.authService.registerUser(user).subscribe(data => {
+                this.ngFlashMessage.showFlashMessage({
+                    messages: ["Your account is successfully registered"],
+                    dismissible: true,
+                    timeout: 3000,
+                    type: 'success'
+                });
+                this.authService.loadUser(data.token);
+            });
+            this.modalService.dismissAll("close modal");
+        }
+    }
+    onLogin() {
+        const user = {
+            username: this.username,
+            password: this.password,
+        };
+        if (!this.authService.validateInput(user)) {
+            this.ngFlashMessage.showFlashMessage({
+                messages: ["Please fill in all the required fields"],
+                dismissible: true,
+                timeout: 3000,
+                type: 'danger'
+            });
+        }
+        else {
+            this.authService.loginUser(user).subscribe(data => this.authService.loadUser(data.token));
+            this.modalService.dismissAll("close modal");
+        }
+    }
+    onLogout() {
+        this.authService.logoutUser();
+        this.username = "";
+        this.password = "";
+        this.avatar = "";
+        this.router.navigate(['/']);
+    }
+};
+AuthComponent.ctorParameters = () => [
+    { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NgbModal"] },
+    { type: src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
+    { type: ng_flash_messages__WEBPACK_IMPORTED_MODULE_4__["NgFlashMessageService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
+];
+AuthComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-auth',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./auth.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/auth/auth.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./auth.component.css */ "./src/app/components/auth/auth.component.css")).default]
+    })
+], AuthComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/layouts/navbar/navbar.component.css":
+/*!****************************************************************!*\
+  !*** ./src/app/components/layouts/navbar/navbar.component.css ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("/* Nav bar */\r\n.nav-bar{\r\n    background-color: #008080;\r\n    padding: 1.5em 2em 1.5em 2em;\r\n    font-weight: bold;\r\n}\r\n.avatar{\r\n    height: 1.5em;\r\n    width: 1.5em;\r\n    margin: 0em .5em;\r\n    border-radius: 50%;\r\n}\r\n.menu-btn, .menu-btn:focus{\r\n    color: white;\r\n    background-color: transparent;\r\n    border: none;\r\n    outline-color: transparent;\r\n}\r\n.dropdown-menu{\r\n    padding: 0em;    \r\n    background-color: #008080;\r\n    border: 1px solid #e0ebeb;\r\n}\r\n.dropdown-item{\r\n    margin: 0em;\r\n    border-bottom: 1px solid #e0ebeb;\r\n    padding: 1em 1.5em .5em;\r\n    color: #e0ebeb;\r\n}\r\n.dropdown-item a{\r\n    margin: 0em;\r\n    color: #e0ebeb;\r\n}\r\n.dropdown-item:active, .dropdown-item:hover,\r\n.dropdown-item a:active, .dropdown-item a:hover{\r\n    color:#008080;\r\n    background-color:  #e0ebeb;\r\n}\r\n.auth-btn p{\r\n    margin-bottom: 0px;\r\n}\r\n.nav-section{\r\n    align-items: center;\r\n    display: flex;\r\n}\r\n.welcome.nav-section{\r\n    justify-content: center;\r\n}\r\n.menu.nav-section{\r\n    justify-content: flex-end;\r\n    font-size: 1.5em;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9sYXlvdXRzL25hdmJhci9uYXZiYXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxZQUFZO0FBQ1o7SUFDSSx5QkFBeUI7SUFDekIsNEJBQTRCO0lBQzVCLGlCQUFpQjtBQUNyQjtBQUNBO0lBQ0ksYUFBYTtJQUNiLFlBQVk7SUFDWixnQkFBZ0I7SUFDaEIsa0JBQWtCO0FBQ3RCO0FBQ0E7SUFDSSxZQUFZO0lBQ1osNkJBQTZCO0lBQzdCLFlBQVk7SUFDWiwwQkFBMEI7QUFDOUI7QUFDQTtJQUNJLFlBQVk7SUFDWix5QkFBeUI7SUFDekIseUJBQXlCO0FBQzdCO0FBQ0E7SUFDSSxXQUFXO0lBQ1gsZ0NBQWdDO0lBQ2hDLHVCQUF1QjtJQUN2QixjQUFjO0FBQ2xCO0FBQ0E7SUFDSSxXQUFXO0lBQ1gsY0FBYztBQUNsQjtBQUNBOztJQUVJLGFBQWE7SUFDYiwwQkFBMEI7QUFDOUI7QUFDQTtJQUNJLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0ksbUJBQW1CO0lBQ25CLGFBQWE7QUFDakI7QUFDQTtJQUNJLHVCQUF1QjtBQUMzQjtBQUNBO0lBQ0kseUJBQXlCO0lBQ3pCLGdCQUFnQjtBQUNwQiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvbGF5b3V0cy9uYXZiYXIvbmF2YmFyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBOYXYgYmFyICovXHJcbi5uYXYtYmFye1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzAwODA4MDtcclxuICAgIHBhZGRpbmc6IDEuNWVtIDJlbSAxLjVlbSAyZW07XHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG4uYXZhdGFye1xyXG4gICAgaGVpZ2h0OiAxLjVlbTtcclxuICAgIHdpZHRoOiAxLjVlbTtcclxuICAgIG1hcmdpbjogMGVtIC41ZW07XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbn1cclxuLm1lbnUtYnRuLCAubWVudS1idG46Zm9jdXN7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcclxuICAgIGJvcmRlcjogbm9uZTtcclxuICAgIG91dGxpbmUtY29sb3I6IHRyYW5zcGFyZW50O1xyXG59XHJcbi5kcm9wZG93bi1tZW51e1xyXG4gICAgcGFkZGluZzogMGVtOyAgICBcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICMwMDgwODA7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjZTBlYmViO1xyXG59XHJcbi5kcm9wZG93bi1pdGVte1xyXG4gICAgbWFyZ2luOiAwZW07XHJcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2UwZWJlYjtcclxuICAgIHBhZGRpbmc6IDFlbSAxLjVlbSAuNWVtO1xyXG4gICAgY29sb3I6ICNlMGViZWI7XHJcbn1cclxuLmRyb3Bkb3duLWl0ZW0gYXtcclxuICAgIG1hcmdpbjogMGVtO1xyXG4gICAgY29sb3I6ICNlMGViZWI7XHJcbn1cclxuLmRyb3Bkb3duLWl0ZW06YWN0aXZlLCAuZHJvcGRvd24taXRlbTpob3ZlcixcclxuLmRyb3Bkb3duLWl0ZW0gYTphY3RpdmUsIC5kcm9wZG93bi1pdGVtIGE6aG92ZXJ7XHJcbiAgICBjb2xvcjojMDA4MDgwO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogICNlMGViZWI7XHJcbn1cclxuLmF1dGgtYnRuIHB7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAwcHg7XHJcbn1cclxuLm5hdi1zZWN0aW9ue1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxuLndlbGNvbWUubmF2LXNlY3Rpb257XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufVxyXG4ubWVudS5uYXYtc2VjdGlvbntcclxuICAgIGp1c3RpZnktY29udGVudDogZmxleC1lbmQ7XHJcbiAgICBmb250LXNpemU6IDEuNWVtO1xyXG59Il19 */");
+
+/***/ }),
+
+/***/ "./src/app/components/layouts/navbar/navbar.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/components/layouts/navbar/navbar.component.ts ***!
+  \***************************************************************/
+/*! exports provided: NavbarComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NavbarComponent", function() { return NavbarComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/auth.service */ "./src/app/services/auth.service.ts");
+
+
+
+let NavbarComponent = class NavbarComponent {
+    constructor(authService) {
+        this.authService = authService;
+    }
+    ngOnInit() {
+    }
+};
+NavbarComponent.ctorParameters = () => [
+    { type: src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] }
+];
+NavbarComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-navbar',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./navbar.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/layouts/navbar/navbar.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./navbar.component.css */ "./src/app/components/layouts/navbar/navbar.component.css")).default]
+    })
+], NavbarComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/my-uploads/my-uploads.component.css":
+/*!****************************************************************!*\
+  !*** ./src/app/components/my-uploads/my-uploads.component.css ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".title{\r\n    margin: 1em 0em;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9teS11cGxvYWRzL215LXVwbG9hZHMuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGVBQWU7QUFDbkIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL215LXVwbG9hZHMvbXktdXBsb2Fkcy5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnRpdGxle1xyXG4gICAgbWFyZ2luOiAxZW0gMGVtO1xyXG59Il19 */");
+
+/***/ }),
+
+/***/ "./src/app/components/my-uploads/my-uploads.component.ts":
+/*!***************************************************************!*\
+  !*** ./src/app/components/my-uploads/my-uploads.component.ts ***!
+  \***************************************************************/
+/*! exports provided: MyUploadsComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyUploadsComponent", function() { return MyUploadsComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var src_app_services_photo_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/photo.service */ "./src/app/services/photo.service.ts");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ng-flash-messages */ "./node_modules/ng-flash-messages/ng-flash-messages.umd.js");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__);
+
+
+
+
+let MyUploadsComponent = class MyUploadsComponent {
+    constructor(photoService, ngFlashMessage) {
+        this.photoService = photoService;
+        this.ngFlashMessage = ngFlashMessage;
+    }
+    ngOnInit() {
+        this.photoService.getMyUploads().subscribe(data => this.photos = data);
+    }
+    addPhoto(photo) {
+        this.photoService.addPhoto(photo).subscribe(res => {
+            this.photos.unshift(res);
+            this.ngFlashMessage.showFlashMessage({
+                messages: ["Photo is added"],
+                dismissible: true,
+                timeout: 3000,
+                type: 'success'
+            });
+        });
+    }
+    deletePhoto(photo) {
+        this.photos = this.photos.filter(pt => pt._id !== photo._id);
+        this.photoService.deletePhoto(photo).subscribe(() => {
+            this.ngFlashMessage.showFlashMessage({
+                messages: ["Photo is removed"],
+                dismissible: true,
+                timeout: 3000,
+                type: 'success'
+            });
+        });
+    }
+};
+MyUploadsComponent.ctorParameters = () => [
+    { type: src_app_services_photo_service__WEBPACK_IMPORTED_MODULE_2__["PhotoService"] },
+    { type: ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__["NgFlashMessageService"] }
+];
+MyUploadsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-my-uploads',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./my-uploads.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/my-uploads/my-uploads.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./my-uploads.component.css */ "./src/app/components/my-uploads/my-uploads.component.css")).default]
+    })
+], MyUploadsComponent);
+
+
+
+/***/ }),
+
 /***/ "./src/app/components/photo-item/photo-item.component.css":
 /*!****************************************************************!*\
   !*** ./src/app/components/photo-item/photo-item.component.css ***!
@@ -483,7 +821,7 @@ AddPhotoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvcGhvdG8taXRlbS9waG90by1pdGVtLmNvbXBvbmVudC5jc3MifQ== */");
+/* harmony default export */ __webpack_exports__["default"] = (".card{\r\n    width: 25rem;\r\n    height: 20rem;\r\n    padding: .25em;\r\n    margin:1em;\r\n    background-color: rgba(210, 224, 224, .75);\r\n    color: #151e1e;\r\n}\r\n.card img{\r\n    height: calc(20rem - .75em);\r\n}\r\n.card .card-body{\r\n    text-align: left;\r\n    padding: 1em;\r\n    background-color: rgb(210, 224, 224);\r\n    min-height: 5rem;\r\n    transition:  transform 1s;\r\n    margin-top: -4.5rem;\r\n    visibility: hidden;   \r\n}\r\n.card:hover{\r\n    cursor:pointer;\r\n}\r\n.card:hover .card-body{\r\n    transform: translateY(-.5rem);\r\n    visibility: visible;\r\n    z-index: 1;\r\n    \r\n}\r\n.card-title::first-letter{\r\n    text-transform: uppercase;\r\n}\r\np.card-title{\r\n    font-size: .85em;\r\n    font-weight: bold;\r\n    white-space: nowrap;\r\n    width: 10rem;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n.img-info{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    font-size: .75em;\r\n}\r\n.img-opts{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: end;\r\n}\r\n.img-opts p{\r\n    margin: 0em 1em;\r\n}\r\n.loved{\r\n    color: darkred;\r\n    background-color: white;\r\n    /* margin-bottom: -0.5em; */\r\n    padding: .25em .75em .25em;\r\n    border: .75px solid darkred;\r\n    border-radius: .5em;\r\n}\r\n.saved{\r\n    color: darkgreen;\r\n    background-color: white;\r\n    /* margin-bottom: -0.5em; */\r\n    padding: .25em .75em .25em;\r\n    border: .75px solid darkgreen;\r\n    border-radius: .5em;\r\n}\r\n.del-img-btn{\r\n    position: absolute;\r\n    top: .25em;\r\n    right: .25em;\r\n    color:darkred;\r\n    border:none;\r\n}\r\n/* Image item Modal */\r\n.image-modal .img-opts{\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9waG90by1pdGVtL3Bob3RvLWl0ZW0uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLFlBQVk7SUFDWixhQUFhO0lBQ2IsY0FBYztJQUNkLFVBQVU7SUFDViwwQ0FBMEM7SUFDMUMsY0FBYztBQUNsQjtBQUNBO0lBQ0ksMkJBQTJCO0FBQy9CO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsWUFBWTtJQUNaLG9DQUFvQztJQUNwQyxnQkFBZ0I7SUFDaEIseUJBQXlCO0lBQ3pCLG1CQUFtQjtJQUNuQixrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLGNBQWM7QUFDbEI7QUFDQTtJQUNJLDZCQUE2QjtJQUM3QixtQkFBbUI7SUFDbkIsVUFBVTs7QUFFZDtBQUNBO0lBQ0kseUJBQXlCO0FBQzdCO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsaUJBQWlCO0lBQ2pCLG1CQUFtQjtJQUNuQixZQUFZO0lBQ1osZ0JBQWdCO0lBQ2hCLHVCQUF1QjtBQUMzQjtBQUNBO0lBQ0ksYUFBYTtJQUNiLDhCQUE4QjtJQUM5QixnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLGFBQWE7SUFDYiw4QkFBOEI7SUFDOUIsZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSxlQUFlO0FBQ25CO0FBQ0E7SUFDSSxjQUFjO0lBQ2QsdUJBQXVCO0lBQ3ZCLDJCQUEyQjtJQUMzQiwwQkFBMEI7SUFDMUIsMkJBQTJCO0lBQzNCLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksZ0JBQWdCO0lBQ2hCLHVCQUF1QjtJQUN2QiwyQkFBMkI7SUFDM0IsMEJBQTBCO0lBQzFCLDZCQUE2QjtJQUM3QixtQkFBbUI7QUFDdkI7QUFDQTtJQUNJLGtCQUFrQjtJQUNsQixVQUFVO0lBQ1YsWUFBWTtJQUNaLGFBQWE7SUFDYixXQUFXO0FBQ2Y7QUFDQSxxQkFBcUI7QUFDckI7SUFDSSxhQUFhO0lBQ2Isc0JBQXNCO0FBQzFCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9waG90by1pdGVtL3Bob3RvLWl0ZW0uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jYXJke1xyXG4gICAgd2lkdGg6IDI1cmVtO1xyXG4gICAgaGVpZ2h0OiAyMHJlbTtcclxuICAgIHBhZGRpbmc6IC4yNWVtO1xyXG4gICAgbWFyZ2luOjFlbTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjEwLCAyMjQsIDIyNCwgLjc1KTtcclxuICAgIGNvbG9yOiAjMTUxZTFlO1xyXG59XHJcbi5jYXJkIGltZ3tcclxuICAgIGhlaWdodDogY2FsYygyMHJlbSAtIC43NWVtKTtcclxufVxyXG4uY2FyZCAuY2FyZC1ib2R5e1xyXG4gICAgdGV4dC1hbGlnbjogbGVmdDtcclxuICAgIHBhZGRpbmc6IDFlbTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigyMTAsIDIyNCwgMjI0KTtcclxuICAgIG1pbi1oZWlnaHQ6IDVyZW07XHJcbiAgICB0cmFuc2l0aW9uOiAgdHJhbnNmb3JtIDFzO1xyXG4gICAgbWFyZ2luLXRvcDogLTQuNXJlbTtcclxuICAgIHZpc2liaWxpdHk6IGhpZGRlbjsgICBcclxufVxyXG4uY2FyZDpob3ZlcntcclxuICAgIGN1cnNvcjpwb2ludGVyO1xyXG59XHJcbi5jYXJkOmhvdmVyIC5jYXJkLWJvZHl7XHJcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoLS41cmVtKTtcclxuICAgIHZpc2liaWxpdHk6IHZpc2libGU7XHJcbiAgICB6LWluZGV4OiAxO1xyXG4gICAgXHJcbn1cclxuLmNhcmQtdGl0bGU6OmZpcnN0LWxldHRlcntcclxuICAgIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XHJcbn1cclxucC5jYXJkLXRpdGxle1xyXG4gICAgZm9udC1zaXplOiAuODVlbTtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gICAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcclxuICAgIHdpZHRoOiAxMHJlbTtcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcclxufVxyXG4uaW1nLWluZm97XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xyXG4gICAgZm9udC1zaXplOiAuNzVlbTtcclxufVxyXG4uaW1nLW9wdHN7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xyXG4gICAgYWxpZ24taXRlbXM6IGVuZDtcclxufVxyXG4uaW1nLW9wdHMgcHtcclxuICAgIG1hcmdpbjogMGVtIDFlbTtcclxufVxyXG4ubG92ZWR7XHJcbiAgICBjb2xvcjogZGFya3JlZDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG4gICAgLyogbWFyZ2luLWJvdHRvbTogLTAuNWVtOyAqL1xyXG4gICAgcGFkZGluZzogLjI1ZW0gLjc1ZW0gLjI1ZW07XHJcbiAgICBib3JkZXI6IC43NXB4IHNvbGlkIGRhcmtyZWQ7XHJcbiAgICBib3JkZXItcmFkaXVzOiAuNWVtO1xyXG59XHJcbi5zYXZlZHtcclxuICAgIGNvbG9yOiBkYXJrZ3JlZW47XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcclxuICAgIC8qIG1hcmdpbi1ib3R0b206IC0wLjVlbTsgKi9cclxuICAgIHBhZGRpbmc6IC4yNWVtIC43NWVtIC4yNWVtO1xyXG4gICAgYm9yZGVyOiAuNzVweCBzb2xpZCBkYXJrZ3JlZW47XHJcbiAgICBib3JkZXItcmFkaXVzOiAuNWVtO1xyXG59XHJcbi5kZWwtaW1nLWJ0bntcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHRvcDogLjI1ZW07XHJcbiAgICByaWdodDogLjI1ZW07XHJcbiAgICBjb2xvcjpkYXJrcmVkO1xyXG4gICAgYm9yZGVyOm5vbmU7XHJcbn1cclxuLyogSW1hZ2UgaXRlbSBNb2RhbCAqL1xyXG4uaW1hZ2UtbW9kYWwgLmltZy1vcHRze1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbn0iXX0= */");
 
 /***/ }),
 
@@ -499,16 +837,76 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PhotoItemComponent", function() { return PhotoItemComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var src_app_services_photo_item_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/photo-item.service */ "./src/app/services/photo-item.service.ts");
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
+
+
+
 
 
 let PhotoItemComponent = class PhotoItemComponent {
-    constructor() { }
+    constructor(authService, photoItemService, modalService) {
+        this.authService = authService;
+        this.photoItemService = photoItemService;
+        this.modalService = modalService;
+        this.deletePhoto = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["EventEmitter"]();
+    }
     ngOnInit() {
     }
+    openLargeModal(content) {
+        this.modalService.open(content, { size: 'lg' });
+    }
+    deletable() {
+        if (this.authService.loadedUser) {
+            return this.photo.user === this.authService.loadedUser._id;
+        }
+    }
+    saved() {
+        if (this.authService.loadedUser) {
+            return this.photo.savedBy.findIndex(saved => saved.user === this.authService.loadedUser._id) >= 0;
+        }
+    }
+    loved() {
+        if (this.authService.loadedUser) {
+            return this.photo.lovedBy.findIndex(loved => loved.user === this.authService.loadedUser._id) >= 0;
+        }
+    }
+    onSavePhoto() {
+        if (!this.authService.isAuthenticated) {
+            alert("Please log in ");
+        }
+        else
+            return this.photoItemService.savePhoto(this.photo._id).subscribe(data => this.photo.savedBy = data);
+    }
+    onUnsavePhoto() {
+        return this.photoItemService.unsavePhoto(this.photo._id).subscribe(data => this.photo.savedBy = data);
+    }
+    onLovePhoto() {
+        if (!this.authService.isAuthenticated) {
+            alert("Please log in ");
+        }
+        else
+            return this.photoItemService.lovePhoto(this.photo._id).subscribe(data => this.photo.lovedBy = data);
+    }
+    onUnlovePhoto() {
+        return this.photoItemService.unlovePhoto(this.photo._id).subscribe(data => this.photo.lovedBy = data);
+    }
+    onDeletePhoto(photo) {
+        this.deletePhoto.emit(photo);
+    }
 };
+PhotoItemComponent.ctorParameters = () => [
+    { type: src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_2__["AuthService"] },
+    { type: src_app_services_photo_item_service__WEBPACK_IMPORTED_MODULE_3__["PhotoItemService"] },
+    { type: _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_4__["NgbModal"] }
+];
 tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Input"])()
 ], PhotoItemComponent.prototype, "photo", void 0);
+tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Output"])()
+], PhotoItemComponent.prototype, "deletePhoto", void 0);
 PhotoItemComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'app-photo-item',
@@ -547,12 +945,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var src_app_services_photo_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/photo.service */ "./src/app/services/photo.service.ts");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ng-flash-messages */ "./node_modules/ng-flash-messages/ng-flash-messages.umd.js");
+/* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__);
+
 
 
 
 let PhotosComponent = class PhotosComponent {
-    constructor(photoService) {
+    constructor(photoService, ngFlashMessage) {
         this.photoService = photoService;
+        this.ngFlashMessage = ngFlashMessage;
     }
     ngOnInit() {
         this.photoService.getPhotos().subscribe(photos => {
@@ -564,18 +966,38 @@ let PhotosComponent = class PhotosComponent {
         let text = this.searchInput;
         this.showedPhotos = this.photos;
         if (text !== "") {
-            this.showedPhotos = this.showedPhotos.filter(photo => photo.caption.toLocaleLowerCase().indexOf(text.toLocaleLowerCase()) >= 0);
+            this.showedPhotos = this.showedPhotos.filter(photo => photo.title.toLocaleLowerCase().indexOf(text.toLocaleLowerCase()) >= 0);
         }
         else {
             this.ngOnInit();
         }
     }
     addPhoto(photo) {
-        this.photoService.addPhoto(photo).subscribe(res => this.photos.push(res));
+        this.photoService.addPhoto(photo).subscribe(res => {
+            this.showedPhotos.unshift(res);
+            this.ngFlashMessage.showFlashMessage({
+                messages: ["Photo is added"],
+                dismissible: true,
+                timeout: 3000,
+                type: 'success'
+            });
+        });
+    }
+    deletePhoto(photo) {
+        this.showedPhotos = this.showedPhotos.filter(pt => pt._id !== photo._id);
+        this.photoService.deletePhoto(photo).subscribe(() => {
+            this.ngFlashMessage.showFlashMessage({
+                messages: ["Photo is removed"],
+                dismissible: true,
+                timeout: 3000,
+                type: 'success'
+            });
+        });
     }
 };
 PhotosComponent.ctorParameters = () => [
-    { type: src_app_services_photo_service__WEBPACK_IMPORTED_MODULE_2__["PhotoService"] }
+    { type: src_app_services_photo_service__WEBPACK_IMPORTED_MODULE_2__["PhotoService"] },
+    { type: ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__["NgFlashMessageService"] }
 ];
 PhotosComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -584,6 +1006,193 @@ PhotosComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./photos.component.css */ "./src/app/components/photos/photos.component.css")).default]
     })
 ], PhotosComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/saved-photo/saved-photo.component.css":
+/*!******************************************************************!*\
+  !*** ./src/app/components/saved-photo/saved-photo.component.css ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvc2F2ZWQtcGhvdG8vc2F2ZWQtcGhvdG8uY29tcG9uZW50LmNzcyJ9 */");
+
+/***/ }),
+
+/***/ "./src/app/components/saved-photo/saved-photo.component.ts":
+/*!*****************************************************************!*\
+  !*** ./src/app/components/saved-photo/saved-photo.component.ts ***!
+  \*****************************************************************/
+/*! exports provided: SavedPhotoComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SavedPhotoComponent", function() { return SavedPhotoComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var src_app_services_photo_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/photo.service */ "./src/app/services/photo.service.ts");
+
+
+
+let SavedPhotoComponent = class SavedPhotoComponent {
+    constructor(photoService) {
+        this.photoService = photoService;
+    }
+    ngOnInit() {
+        this.photoService.getSavedPhotos().subscribe(data => this.photos = data);
+    }
+};
+SavedPhotoComponent.ctorParameters = () => [
+    { type: src_app_services_photo_service__WEBPACK_IMPORTED_MODULE_2__["PhotoService"] }
+];
+SavedPhotoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-saved-photo',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./saved-photo.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/saved-photo/saved-photo.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./saved-photo.component.css */ "./src/app/components/saved-photo/saved-photo.component.css")).default]
+    })
+], SavedPhotoComponent);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/auth.service.ts":
+/*!******************************************!*\
+  !*** ./src/app/services/auth.service.ts ***!
+  \******************************************/
+/*! exports provided: AuthService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AuthService", function() { return AuthService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+
+
+
+const httpOptions = {
+    headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+        'Content-Type': 'application/json'
+    })
+};
+let AuthService = class AuthService {
+    constructor(http) {
+        this.http = http;
+        this.url = 'http://localhost:5000/api/user';
+        this.isAuthenticated = false;
+    }
+    loadUser(token) {
+        this.token = token;
+        if (this.token) {
+            let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+                'Content-type': 'application/json',
+                'x-auth-token': this.token
+            });
+            this.http.get(this.url + '/auth', { headers: headers }).subscribe(data => this.loadedUser = data);
+            this.isAuthenticated = true;
+            return this.loadedUser;
+        }
+    }
+    validateInput({ username, password }) {
+        if (username === undefined || password === undefined) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+    registerUser(user) {
+        var formData = new FormData();
+        formData.append("username", user.username);
+        formData.append("password", user.password);
+        formData.append("avatar", user.avatar);
+        return this.http.post(this.url + '/register', formData);
+    }
+    loginUser(user) {
+        return this.http.post(this.url + '/login', JSON.stringify(user), httpOptions);
+    }
+    logoutUser() {
+        this.isAuthenticated = false;
+    }
+};
+AuthService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+];
+AuthService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], AuthService);
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/photo-item.service.ts":
+/*!************************************************!*\
+  !*** ./src/app/services/photo-item.service.ts ***!
+  \************************************************/
+/*! exports provided: PhotoItemService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PhotoItemService", function() { return PhotoItemService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./auth.service */ "./src/app/services/auth.service.ts");
+
+
+
+
+let PhotoItemService = class PhotoItemService {
+    constructor(http, authService) {
+        this.http = http;
+        this.authService = authService;
+        this.url = 'http://localhost:5000/api/photos';
+    }
+    getHttpOptions(token) {
+        return new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-type': 'application/json',
+            'x-auth-token': token
+        });
+    }
+    savePhoto(photo_id) {
+        //res.json(photo.savedBy(user_id))
+        return this.http.put(this.url + `/saved/${photo_id}`, null, { headers: this.getHttpOptions(this.authService.token) });
+    }
+    unsavePhoto(photo_id) {
+        //res.json(photo.savedBy(user_id))
+        return this.http.put(this.url + `/unsave/${photo_id}`, null, { headers: this.getHttpOptions(this.authService.token) });
+    }
+    lovePhoto(photo_id) {
+        //res.json(photo.lovedBy(user_id))
+        return this.http.put(this.url + `/loved/${photo_id}`, null, { headers: this.getHttpOptions(this.authService.token) });
+    }
+    unlovePhoto(photo_id) {
+        //res.json(photo.lovedBy(user_id))
+        return this.http.put(this.url + `/unlove/${photo_id}`, null, { headers: this.getHttpOptions(this.authService.token) });
+    }
+};
+PhotoItemService.ctorParameters = () => [
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: _auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] }
+];
+PhotoItemService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+        providedIn: 'root'
+    })
+], PhotoItemService);
 
 
 
@@ -602,31 +1211,55 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
+/* harmony import */ var _auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./auth.service */ "./src/app/services/auth.service.ts");
 
 
 
-const httpOptions = {
-    headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-        'Content-Type': 'application/json'
-    })
-};
+
 let PhotoService = class PhotoService {
-    constructor(http) {
+    constructor(http, authService) {
         this.http = http;
-        this.url = 'api/photos';
+        this.authService = authService;
+        this.urlPhoto = 'http://localhost:5000/api/photos';
+        this.urlUser = 'http://localhost:5000/api/user';
     }
     getPhotos() {
-        return this.http.get(this.url);
+        return this.http.get(this.urlPhoto);
+    }
+    getMyUploads() {
+        const header = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'x-auth-token': this.authService.token
+        });
+        //res.json(photos)
+        return this.http.get(this.urlPhoto + `/${this.authService.loadedUser._id}`, { headers: header });
+    }
+    getSavedPhotos() {
+        const header = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'x-auth-token': this.authService.token
+        });
+        return this.http.get(this.urlUser + '/saved', { headers: header });
     }
     addPhoto(photo) {
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'x-auth-token': this.authService.token
+        });
         var formData = new FormData();
         formData.append("caption", photo.caption);
         formData.append("path", photo.path);
-        return this.http.post(this.url + "/upload", formData);
+        formData.append("title", photo.title);
+        return this.http.post(this.urlPhoto + "/upload", formData, { headers: headers });
+    }
+    deletePhoto(photo) {
+        var headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
+            'Content-Type': 'application/json',
+            'x-auth-token': this.authService.token
+        });
+        return this.http.delete(this.urlPhoto + `/${photo._id}`, { headers: headers });
     }
 };
 PhotoService.ctorParameters = () => [
-    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] }
+    { type: _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"] },
+    { type: _auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] }
 ];
 PhotoService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({

@@ -50,7 +50,7 @@ export class PhotoService {
       'Content-Type': 'application/json',
       'x-auth-token': this.authService.token
     })
-    console.log("Serivce: " + photo._id)
+    
     return this.http.delete<Photo>(this.urlPhoto + `/${photo._id}`, {headers: headers});
   }
 }
