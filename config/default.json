@@ -1,8 +1,8 @@
 {
-    "uri": "mongodb+srv://username:<password>@photogallery-nac1c.mongodb.net/test?retryWrites=true&w=majority",
+    "uri": "mongodb+srv://admin:Victory171@photogallery-nac1c.mongodb.net/test?retryWrites=true&w=majority",
     "jwtsecret": "myjwt",
-    "cloudName":"cloudName",
-    "cloudApiKey":"cloudApiKey",
-    "cloudApiSecret":"cloudApiSecret",
-    "defaultAvatar": "defaultAvatar"
+    "cloudName":"anhvo",
+    "cloudApiKey":"164845931972192",
+    "cloudApiSecret":"GfdnfKZhzh9wuYZsT2mCsjvmQys",
+    "defaultAvatar": "https://res.cloudinary.com/anhvo/image/upload/v1580925959/my-gallery-mean/default-avatar_ewbsu1.png"
 }
