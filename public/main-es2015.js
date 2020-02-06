@@ -71,7 +71,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row nav-bar\">\r\n    <div class=\"col nav-section\">\r\n        <a [routerLink]=\"['/']\" class=\"logo\"><i class=\"far fa-images\"></i> MY GALLERY</a>\r\n    </div>\r\n   \r\n    <div class=\"col menu nav-section\">\r\n      <div ngbDropdown class=\"d-inline-block\">\r\n        <button class=\"menu-btn\" id=\"dropdownBasic1\" ngbDropdownToggle>\r\n          <i *ngIf=\"!authService.isAuthenticated\" class=\"fas fa-bars\"></i>\r\n          <img *ngIf=\"authService.isAuthenticated && authService.loadedUser && authService.loadedUser.avatar !== ''\" src=\"{{authService.loadedUser.avatar}}\" class=\"avatar\"/>        \r\n        </button>\r\n        <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\">          \r\n            <div ngbDropdownItem><app-auth></app-auth></div>       \r\n            <div ngbDropdownItem  *ngIf=\"authService.isAuthenticated\"><a [routerLink]=\"['/my_uploads']\"><i class=\"fas fa-caret-square-up\"></i> My uploads</a></div>  \r\n            <div ngbDropdownItem  *ngIf=\"authService.isAuthenticated\"><a [routerLink]=\"['/saved']\"><i class=\"fas fa-folder-plus\"></i> My saved</a></div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n</div>\r\n  ");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"row nav-bar\">\r\n    <div class=\"col nav-section\">\r\n        <a [routerLink]=\"['/']\" class=\"logo\"><i class=\"far fa-images\"></i> MyGallery</a>\r\n    </div>\r\n   \r\n    <div class=\"col menu nav-section\">\r\n      <div ngbDropdown class=\"d-inline-block\">\r\n        <button class=\"menu-btn\" id=\"dropdownBasic1\" ngbDropdownToggle>\r\n          <i *ngIf=\"!authService.isAuthenticated\" class=\"fas fa-bars\"></i>\r\n          <img *ngIf=\"authService.isAuthenticated && authService.loadedUser && authService.loadedUser.avatar !== ''\" src=\"{{authService.loadedUser.avatar}}\" class=\"avatar\"/>        \r\n        </button>\r\n        <div ngbDropdownMenu aria-labelledby=\"dropdownBasic1\">          \r\n            <div ngbDropdownItem><app-auth></app-auth></div>       \r\n            <div ngbDropdownItem  *ngIf=\"authService.isAuthenticated\"><a [routerLink]=\"['/my_uploads']\"><i class=\"fas fa-caret-square-up\"></i> My uploads</a></div>  \r\n            <div ngbDropdownItem  *ngIf=\"authService.isAuthenticated\"><a [routerLink]=\"['/saved']\"><i class=\"fas fa-folder-plus\"></i> My saved</a></div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n</div>\r\n  ");
 
 /***/ }),
 
@@ -84,7 +84,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"mx-auto w-100 mt-5 mb-5 justify-content-center text-center container-fluid\">\r\n    <h2 class=\"title\">My Uploads</h2>\r\n    <app-add-photo (addPhoto)=\"addPhoto($event)\"></app-add-photo>\r\n    <ng-flash-message></ng-flash-message>\r\n    <div class=\"photo-list d-flex justify-content-center flex-wrap\">\r\n        <app-photo-item *ngFor=\"let photo of photos\" [photo]=\"photo\" (deletePhoto)=\"deletePhoto($event)\"></app-photo-item>\r\n    </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"mx-auto w-100 mt-5 mb-5 justify-content-center text-center container-fluid\">\r\n    <h2 class=\"title\">My Uploads</h2>\r\n    <div class=\"photos-opts\">\r\n        <div class=\"photo-opts-left\">\r\n            <app-add-photo (addPhoto)=\"addPhoto($event)\"></app-add-photo>\r\n        </div>\r\n        <div class=\"photo-opts-right\">\r\n            <select class='select-option' (change)='onFilter($event)'>\r\n                <option *ngFor='let opt of filters' [value]=\"opt.id\">{{opt.text}}</option>\r\n            </select>\r\n        </div>\r\n    </div>\r\n    <ng-flash-message></ng-flash-message>    \r\n    <div class=\"photo-list d-flex justify-content-center flex-wrap\">\r\n        <app-photo-item *ngFor=\"let photo of photos\" [photo]=\"photo\" (deletePhoto)=\"deletePhoto($event)\"></app-photo-item>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -110,7 +110,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"mx-auto w-100 mt-5 mb-5 justify-content-center container-fluid\">\r\n    <input class=\"search-input form-control\" placeholder=\"Search an image...\" type=\"text\" value=\"searchInput\" name=\"searchInput\" [(ngModel)]=\"searchInput\" (ngModelChange)=\"search()\" />\r\n    <app-add-photo (addPhoto)=\"addPhoto($event)\"></app-add-photo>\r\n    <ng-flash-message></ng-flash-message>\r\n    <div class=\"photo-list\">        \r\n        <app-photo-item *ngFor=\"let photo of showedPhotos\" [photo]=\"photo\" (deletePhoto)=\"deletePhoto($event)\"></app-photo-item>\r\n    </div>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"mx-auto w-100 mt-5 mb-5 justify-content-center container-fluid\">\r\n    <input class=\"search-input form-control\" placeholder=\"Search an image...\" type=\"text\" value=\"searchInput\" name=\"searchInput\" [(ngModel)]=\"searchInput\" (ngModelChange)=\"search()\" />\r\n    <div class=\"photo-opts-left\">\r\n        <app-add-photo (addPhoto)=\"addPhoto($event)\"></app-add-photo>\r\n    </div>\r\n    <ng-flash-message></ng-flash-message>\r\n    <div class=\"photo-list\">        \r\n        <app-photo-item *ngFor=\"let photo of showedPhotos\" [photo]=\"photo\" (deletePhoto)=\"deletePhoto($event)\"></app-photo-item>\r\n    </div>\r\n</div>");
 
 /***/ }),
 
@@ -123,7 +123,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"mx-auto w-100 mt-5 mb-5 justify-content-center text-center container-fluid\">\r\n    <h2 class=\"title\">My Saved Photos</h2>\r\n    <div class=\"photo-list\">\r\n        <app-photo-item *ngFor=\"let photo of photos\" [photo]=\"photo\"></app-photo-item>\r\n    </div>\r\n</div>\r\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<div class=\"mx-auto w-100 mt-5 mb-5 justify-content-center text-center container-fluid\">\r\n    <h2 class=\"title\">My Saved Photos</h2>\r\n    <div class=\"photo-opts-right\">\r\n        <select class='select-option' (change)='onFilter($event)'>\r\n            <option *ngFor='let opt of filters' [value]=\"opt.id\">{{opt.text}}</option>\r\n        </select>\r\n    </div>\r\n    <div class=\"photo-list\">\r\n        <app-photo-item *ngFor=\"let photo of photos\" [photo]=\"photo\"></app-photo-item>\r\n    </div>\r\n</div>\r\n");
 
 /***/ }),
 
@@ -491,7 +491,7 @@ AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".upload-section{\r\n    text-align: left;\r\n    margin: 1.5em 4em;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9hZGQtcGhvdG8vYWRkLXBob3RvLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxnQkFBZ0I7SUFDaEIsaUJBQWlCO0FBQ3JCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9hZGQtcGhvdG8vYWRkLXBob3RvLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIudXBsb2FkLXNlY3Rpb257XHJcbiAgICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG4gICAgbWFyZ2luOiAxLjVlbSA0ZW07XHJcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".upload-section{\r\n    text-align: left;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9hZGQtcGhvdG8vYWRkLXBob3RvLmNvbXBvbmVudC5jc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUE7SUFDSSxnQkFBZ0I7QUFDcEIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2FkZC1waG90by9hZGQtcGhvdG8uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi51cGxvYWQtc2VjdGlvbntcclxuICAgIHRleHQtYWxpZ246IGxlZnQ7XHJcbn0iXX0= */");
 
 /***/ }),
 
@@ -691,7 +691,7 @@ AuthComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("/* Nav bar */\r\n.nav-bar{\r\n    background-color: #008080;\r\n    padding: 1.5em 2em 1.5em 2em;\r\n    font-weight: bold;\r\n}\r\n.avatar{\r\n    height: 1.5em;\r\n    width: 1.5em;\r\n    margin: 0em .5em;\r\n    border-radius: 50%;\r\n}\r\n.menu-btn, .menu-btn:focus{\r\n    color: white;\r\n    background-color: transparent;\r\n    border: none;\r\n    outline-color: transparent;\r\n}\r\n.dropdown-menu{\r\n    padding: 0em;    \r\n    background-color: #008080;\r\n    border: 1px solid #e0ebeb;\r\n}\r\n.dropdown-item{\r\n    margin: 0em;\r\n    border-bottom: 1px solid #e0ebeb;\r\n    padding: 1em 1.5em .5em;\r\n    color: #e0ebeb;\r\n}\r\n.dropdown-item a{\r\n    margin: 0em;\r\n    color: #e0ebeb;\r\n}\r\n.dropdown-item:active, .dropdown-item:hover,\r\n.dropdown-item a:active, .dropdown-item a:hover{\r\n    color:#008080;\r\n    background-color:  #e0ebeb;\r\n}\r\n.auth-btn p{\r\n    margin-bottom: 0px;\r\n}\r\n.nav-section{\r\n    align-items: center;\r\n    display: flex;\r\n}\r\n.welcome.nav-section{\r\n    justify-content: center;\r\n}\r\n.menu.nav-section{\r\n    justify-content: flex-end;\r\n    font-size: 1.5em;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9sYXlvdXRzL25hdmJhci9uYXZiYXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxZQUFZO0FBQ1o7SUFDSSx5QkFBeUI7SUFDekIsNEJBQTRCO0lBQzVCLGlCQUFpQjtBQUNyQjtBQUNBO0lBQ0ksYUFBYTtJQUNiLFlBQVk7SUFDWixnQkFBZ0I7SUFDaEIsa0JBQWtCO0FBQ3RCO0FBQ0E7SUFDSSxZQUFZO0lBQ1osNkJBQTZCO0lBQzdCLFlBQVk7SUFDWiwwQkFBMEI7QUFDOUI7QUFDQTtJQUNJLFlBQVk7SUFDWix5QkFBeUI7SUFDekIseUJBQXlCO0FBQzdCO0FBQ0E7SUFDSSxXQUFXO0lBQ1gsZ0NBQWdDO0lBQ2hDLHVCQUF1QjtJQUN2QixjQUFjO0FBQ2xCO0FBQ0E7SUFDSSxXQUFXO0lBQ1gsY0FBYztBQUNsQjtBQUNBOztJQUVJLGFBQWE7SUFDYiwwQkFBMEI7QUFDOUI7QUFDQTtJQUNJLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0ksbUJBQW1CO0lBQ25CLGFBQWE7QUFDakI7QUFDQTtJQUNJLHVCQUF1QjtBQUMzQjtBQUNBO0lBQ0kseUJBQXlCO0lBQ3pCLGdCQUFnQjtBQUNwQiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvbGF5b3V0cy9uYXZiYXIvbmF2YmFyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBOYXYgYmFyICovXHJcbi5uYXYtYmFye1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzAwODA4MDtcclxuICAgIHBhZGRpbmc6IDEuNWVtIDJlbSAxLjVlbSAyZW07XHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG4uYXZhdGFye1xyXG4gICAgaGVpZ2h0OiAxLjVlbTtcclxuICAgIHdpZHRoOiAxLjVlbTtcclxuICAgIG1hcmdpbjogMGVtIC41ZW07XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbn1cclxuLm1lbnUtYnRuLCAubWVudS1idG46Zm9jdXN7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcclxuICAgIGJvcmRlcjogbm9uZTtcclxuICAgIG91dGxpbmUtY29sb3I6IHRyYW5zcGFyZW50O1xyXG59XHJcbi5kcm9wZG93bi1tZW51e1xyXG4gICAgcGFkZGluZzogMGVtOyAgICBcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICMwMDgwODA7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjZTBlYmViO1xyXG59XHJcbi5kcm9wZG93bi1pdGVte1xyXG4gICAgbWFyZ2luOiAwZW07XHJcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2UwZWJlYjtcclxuICAgIHBhZGRpbmc6IDFlbSAxLjVlbSAuNWVtO1xyXG4gICAgY29sb3I6ICNlMGViZWI7XHJcbn1cclxuLmRyb3Bkb3duLWl0ZW0gYXtcclxuICAgIG1hcmdpbjogMGVtO1xyXG4gICAgY29sb3I6ICNlMGViZWI7XHJcbn1cclxuLmRyb3Bkb3duLWl0ZW06YWN0aXZlLCAuZHJvcGRvd24taXRlbTpob3ZlcixcclxuLmRyb3Bkb3duLWl0ZW0gYTphY3RpdmUsIC5kcm9wZG93bi1pdGVtIGE6aG92ZXJ7XHJcbiAgICBjb2xvcjojMDA4MDgwO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogICNlMGViZWI7XHJcbn1cclxuLmF1dGgtYnRuIHB7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAwcHg7XHJcbn1cclxuLm5hdi1zZWN0aW9ue1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxuLndlbGNvbWUubmF2LXNlY3Rpb257XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufVxyXG4ubWVudS5uYXYtc2VjdGlvbntcclxuICAgIGp1c3RpZnktY29udGVudDogZmxleC1lbmQ7XHJcbiAgICBmb250LXNpemU6IDEuNWVtO1xyXG59Il19 */");
+/* harmony default export */ __webpack_exports__["default"] = ("/* Nav bar */\r\n.nav-bar{\r\n    background-color: #008080;\r\n    padding: 1.5em 2em 1.5em 2em;\r\n    font-weight: bold;\r\n}\r\n.avatar{\r\n    height: 1.5em;\r\n    width: 1.5em;\r\n    margin: 0em .5em;\r\n    border-radius: 50%;\r\n}\r\n.menu-btn, .menu-btn:focus{\r\n    color: white;\r\n    background-color: transparent;\r\n    border: none;\r\n    outline-color: transparent;\r\n}\r\n.dropdown-menu{\r\n    padding: 0em;    \r\n    background-color: #008080;\r\n    border: 1px solid #e0ebeb;\r\n}\r\n.dropdown-item{\r\n    margin: 0em;\r\n    border-bottom: 1px solid #e0ebeb;\r\n    padding: 1em 1.5em .5em;\r\n    color: #e0ebeb;\r\n}\r\n.dropdown-item a{\r\n    margin: 0em;\r\n    color: #e0ebeb;\r\n}\r\n.dropdown-item:active, .dropdown-item:hover, .dropdown-item:hover a,\r\n.dropdown-item a:active, .dropdown-item a:hover{\r\n    color:#008080;\r\n    background-color:  #e0ebeb;\r\n}\r\n.auth-btn p{\r\n    margin-bottom: 0px;\r\n}\r\n.nav-section{\r\n    align-items: center;\r\n    display: flex;\r\n}\r\n.welcome.nav-section{\r\n    justify-content: center;\r\n}\r\n.menu.nav-section{\r\n    justify-content: flex-end;\r\n    font-size: 1.5em;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9sYXlvdXRzL25hdmJhci9uYXZiYXIuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxZQUFZO0FBQ1o7SUFDSSx5QkFBeUI7SUFDekIsNEJBQTRCO0lBQzVCLGlCQUFpQjtBQUNyQjtBQUNBO0lBQ0ksYUFBYTtJQUNiLFlBQVk7SUFDWixnQkFBZ0I7SUFDaEIsa0JBQWtCO0FBQ3RCO0FBQ0E7SUFDSSxZQUFZO0lBQ1osNkJBQTZCO0lBQzdCLFlBQVk7SUFDWiwwQkFBMEI7QUFDOUI7QUFDQTtJQUNJLFlBQVk7SUFDWix5QkFBeUI7SUFDekIseUJBQXlCO0FBQzdCO0FBQ0E7SUFDSSxXQUFXO0lBQ1gsZ0NBQWdDO0lBQ2hDLHVCQUF1QjtJQUN2QixjQUFjO0FBQ2xCO0FBQ0E7SUFDSSxXQUFXO0lBQ1gsY0FBYztBQUNsQjtBQUNBOztJQUVJLGFBQWE7SUFDYiwwQkFBMEI7QUFDOUI7QUFDQTtJQUNJLGtCQUFrQjtBQUN0QjtBQUNBO0lBQ0ksbUJBQW1CO0lBQ25CLGFBQWE7QUFDakI7QUFDQTtJQUNJLHVCQUF1QjtBQUMzQjtBQUNBO0lBQ0kseUJBQXlCO0lBQ3pCLGdCQUFnQjtBQUNwQiIsImZpbGUiOiJzcmMvYXBwL2NvbXBvbmVudHMvbGF5b3V0cy9uYXZiYXIvbmF2YmFyLmNvbXBvbmVudC5jc3MiLCJzb3VyY2VzQ29udGVudCI6WyIvKiBOYXYgYmFyICovXHJcbi5uYXYtYmFye1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogIzAwODA4MDtcclxuICAgIHBhZGRpbmc6IDEuNWVtIDJlbSAxLjVlbSAyZW07XHJcbiAgICBmb250LXdlaWdodDogYm9sZDtcclxufVxyXG4uYXZhdGFye1xyXG4gICAgaGVpZ2h0OiAxLjVlbTtcclxuICAgIHdpZHRoOiAxLjVlbTtcclxuICAgIG1hcmdpbjogMGVtIC41ZW07XHJcbiAgICBib3JkZXItcmFkaXVzOiA1MCU7XHJcbn1cclxuLm1lbnUtYnRuLCAubWVudS1idG46Zm9jdXN7XHJcbiAgICBjb2xvcjogd2hpdGU7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB0cmFuc3BhcmVudDtcclxuICAgIGJvcmRlcjogbm9uZTtcclxuICAgIG91dGxpbmUtY29sb3I6IHRyYW5zcGFyZW50O1xyXG59XHJcbi5kcm9wZG93bi1tZW51e1xyXG4gICAgcGFkZGluZzogMGVtOyAgICBcclxuICAgIGJhY2tncm91bmQtY29sb3I6ICMwMDgwODA7XHJcbiAgICBib3JkZXI6IDFweCBzb2xpZCAjZTBlYmViO1xyXG59XHJcbi5kcm9wZG93bi1pdGVte1xyXG4gICAgbWFyZ2luOiAwZW07XHJcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI2UwZWJlYjtcclxuICAgIHBhZGRpbmc6IDFlbSAxLjVlbSAuNWVtO1xyXG4gICAgY29sb3I6ICNlMGViZWI7XHJcbn1cclxuLmRyb3Bkb3duLWl0ZW0gYXtcclxuICAgIG1hcmdpbjogMGVtO1xyXG4gICAgY29sb3I6ICNlMGViZWI7XHJcbn1cclxuLmRyb3Bkb3duLWl0ZW06YWN0aXZlLCAuZHJvcGRvd24taXRlbTpob3ZlciwgLmRyb3Bkb3duLWl0ZW06aG92ZXIgYSxcclxuLmRyb3Bkb3duLWl0ZW0gYTphY3RpdmUsIC5kcm9wZG93bi1pdGVtIGE6aG92ZXJ7XHJcbiAgICBjb2xvcjojMDA4MDgwO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogICNlMGViZWI7XHJcbn1cclxuLmF1dGgtYnRuIHB7XHJcbiAgICBtYXJnaW4tYm90dG9tOiAwcHg7XHJcbn1cclxuLm5hdi1zZWN0aW9ue1xyXG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbn1cclxuLndlbGNvbWUubmF2LXNlY3Rpb257XHJcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcclxufVxyXG4ubWVudS5uYXYtc2VjdGlvbntcclxuICAgIGp1c3RpZnktY29udGVudDogZmxleC1lbmQ7XHJcbiAgICBmb250LXNpemU6IDEuNWVtO1xyXG59Il19 */");
 
 /***/ }),
 
@@ -761,17 +761,63 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var src_app_services_photo_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/photo.service */ "./src/app/services/photo.service.ts");
 /* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ng-flash-messages */ "./node_modules/ng-flash-messages/ng-flash-messages.umd.js");
 /* harmony import */ var ng_flash_messages__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! src/app/services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
+
 
 
 
 
 let MyUploadsComponent = class MyUploadsComponent {
-    constructor(photoService, ngFlashMessage) {
+    constructor(photoService, ngFlashMessage, authService, router) {
         this.photoService = photoService;
         this.ngFlashMessage = ngFlashMessage;
+        this.authService = authService;
+        this.router = router;
+        this.filters = this.photoService.getFilterOptions();
     }
     ngOnInit() {
+        if (!this.authService.isAuthenticated)
+            this.router.navigate(['/']);
         this.photoService.getMyUploads().subscribe(data => this.photos = data);
+    }
+    onFilter(event) {
+        console.log(event.target.value);
+        switch (event.target.value) {
+            case "1":
+                this.photos = this.photos.sort((a, b) => {
+                    var x = a.title.toLowerCase();
+                    var y = b.title.toLowerCase();
+                    if (x < y) {
+                        return -1;
+                    }
+                    if (x > y) {
+                        return 1;
+                    }
+                    return 0;
+                });
+                break;
+            case "2":
+                this.photos = this.photos.sort((a, b) => {
+                    var x = a.title.toLowerCase();
+                    var y = b.title.toLowerCase();
+                    if (x > y) {
+                        return -1;
+                    }
+                    if (x < y) {
+                        return 1;
+                    }
+                    return 0;
+                });
+                break;
+            case "3":
+                this.photos = this.photos.sort((a, b) => a.lovedBy.length - b.lovedBy.length);
+                break;
+            default:
+                return this.photos;
+        }
+        console.log(this.photos);
     }
     addPhoto(photo) {
         this.photoService.addPhoto(photo).subscribe(res => {
@@ -798,7 +844,9 @@ let MyUploadsComponent = class MyUploadsComponent {
 };
 MyUploadsComponent.ctorParameters = () => [
     { type: src_app_services_photo_service__WEBPACK_IMPORTED_MODULE_2__["PhotoService"] },
-    { type: ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__["NgFlashMessageService"] }
+    { type: ng_flash_messages__WEBPACK_IMPORTED_MODULE_3__["NgFlashMessageService"] },
+    { type: src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_4__["AuthService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_5__["Router"] }
 ];
 MyUploadsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -821,7 +869,7 @@ MyUploadsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (".card{\r\n    width: 25rem;\r\n    height: 20rem;\r\n    padding: .25em;\r\n    margin:1em;\r\n    background-color: rgba(210, 224, 224, .75);\r\n    color: #151e1e;\r\n}\r\n.card img{\r\n    height: calc(20rem - .75em);\r\n}\r\n.card .card-body{\r\n    text-align: left;\r\n    padding: 1em;\r\n    background-color: rgb(210, 224, 224);\r\n    min-height: 5rem;\r\n    transition:  transform 1s;\r\n    margin-top: -4.5rem;\r\n    visibility: hidden;   \r\n}\r\n.card:hover{\r\n    cursor:pointer;\r\n}\r\n.card:hover .card-body{\r\n    transform: translateY(-.5rem);\r\n    visibility: visible;\r\n    z-index: 1;\r\n    \r\n}\r\n.card-title::first-letter{\r\n    text-transform: uppercase;\r\n}\r\np.card-title{\r\n    font-size: .85em;\r\n    font-weight: bold;\r\n    white-space: nowrap;\r\n    width: 10rem;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n.img-info{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    font-size: .75em;\r\n}\r\n.img-opts{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: end;\r\n}\r\n.img-opts p{\r\n    margin: 0em 1em;\r\n}\r\n.loved{\r\n    color: darkred;\r\n    background-color: white;\r\n    /* margin-bottom: -0.5em; */\r\n    padding: .25em .75em .25em;\r\n    border: .75px solid darkred;\r\n    border-radius: .5em;\r\n}\r\n.saved{\r\n    color: darkgreen;\r\n    background-color: white;\r\n    /* margin-bottom: -0.5em; */\r\n    padding: .25em .75em .25em;\r\n    border: .75px solid darkgreen;\r\n    border-radius: .5em;\r\n}\r\n.del-img-btn{\r\n    position: absolute;\r\n    top: .25em;\r\n    right: .25em;\r\n    color:darkred;\r\n    border:none;\r\n}\r\n/* Image item Modal */\r\n.image-modal .img-opts{\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9waG90by1pdGVtL3Bob3RvLWl0ZW0uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLFlBQVk7SUFDWixhQUFhO0lBQ2IsY0FBYztJQUNkLFVBQVU7SUFDViwwQ0FBMEM7SUFDMUMsY0FBYztBQUNsQjtBQUNBO0lBQ0ksMkJBQTJCO0FBQy9CO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsWUFBWTtJQUNaLG9DQUFvQztJQUNwQyxnQkFBZ0I7SUFDaEIseUJBQXlCO0lBQ3pCLG1CQUFtQjtJQUNuQixrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLGNBQWM7QUFDbEI7QUFDQTtJQUNJLDZCQUE2QjtJQUM3QixtQkFBbUI7SUFDbkIsVUFBVTs7QUFFZDtBQUNBO0lBQ0kseUJBQXlCO0FBQzdCO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsaUJBQWlCO0lBQ2pCLG1CQUFtQjtJQUNuQixZQUFZO0lBQ1osZ0JBQWdCO0lBQ2hCLHVCQUF1QjtBQUMzQjtBQUNBO0lBQ0ksYUFBYTtJQUNiLDhCQUE4QjtJQUM5QixnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLGFBQWE7SUFDYiw4QkFBOEI7SUFDOUIsZ0JBQWdCO0FBQ3BCO0FBQ0E7SUFDSSxlQUFlO0FBQ25CO0FBQ0E7SUFDSSxjQUFjO0lBQ2QsdUJBQXVCO0lBQ3ZCLDJCQUEyQjtJQUMzQiwwQkFBMEI7SUFDMUIsMkJBQTJCO0lBQzNCLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksZ0JBQWdCO0lBQ2hCLHVCQUF1QjtJQUN2QiwyQkFBMkI7SUFDM0IsMEJBQTBCO0lBQzFCLDZCQUE2QjtJQUM3QixtQkFBbUI7QUFDdkI7QUFDQTtJQUNJLGtCQUFrQjtJQUNsQixVQUFVO0lBQ1YsWUFBWTtJQUNaLGFBQWE7SUFDYixXQUFXO0FBQ2Y7QUFDQSxxQkFBcUI7QUFDckI7SUFDSSxhQUFhO0lBQ2Isc0JBQXNCO0FBQzFCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9waG90by1pdGVtL3Bob3RvLWl0ZW0uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jYXJke1xyXG4gICAgd2lkdGg6IDI1cmVtO1xyXG4gICAgaGVpZ2h0OiAyMHJlbTtcclxuICAgIHBhZGRpbmc6IC4yNWVtO1xyXG4gICAgbWFyZ2luOjFlbTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjEwLCAyMjQsIDIyNCwgLjc1KTtcclxuICAgIGNvbG9yOiAjMTUxZTFlO1xyXG59XHJcbi5jYXJkIGltZ3tcclxuICAgIGhlaWdodDogY2FsYygyMHJlbSAtIC43NWVtKTtcclxufVxyXG4uY2FyZCAuY2FyZC1ib2R5e1xyXG4gICAgdGV4dC1hbGlnbjogbGVmdDtcclxuICAgIHBhZGRpbmc6IDFlbTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigyMTAsIDIyNCwgMjI0KTtcclxuICAgIG1pbi1oZWlnaHQ6IDVyZW07XHJcbiAgICB0cmFuc2l0aW9uOiAgdHJhbnNmb3JtIDFzO1xyXG4gICAgbWFyZ2luLXRvcDogLTQuNXJlbTtcclxuICAgIHZpc2liaWxpdHk6IGhpZGRlbjsgICBcclxufVxyXG4uY2FyZDpob3ZlcntcclxuICAgIGN1cnNvcjpwb2ludGVyO1xyXG59XHJcbi5jYXJkOmhvdmVyIC5jYXJkLWJvZHl7XHJcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoLS41cmVtKTtcclxuICAgIHZpc2liaWxpdHk6IHZpc2libGU7XHJcbiAgICB6LWluZGV4OiAxO1xyXG4gICAgXHJcbn1cclxuLmNhcmQtdGl0bGU6OmZpcnN0LWxldHRlcntcclxuICAgIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XHJcbn1cclxucC5jYXJkLXRpdGxle1xyXG4gICAgZm9udC1zaXplOiAuODVlbTtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gICAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcclxuICAgIHdpZHRoOiAxMHJlbTtcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcclxufVxyXG4uaW1nLWluZm97XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xyXG4gICAgZm9udC1zaXplOiAuNzVlbTtcclxufVxyXG4uaW1nLW9wdHN7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xyXG4gICAgYWxpZ24taXRlbXM6IGVuZDtcclxufVxyXG4uaW1nLW9wdHMgcHtcclxuICAgIG1hcmdpbjogMGVtIDFlbTtcclxufVxyXG4ubG92ZWR7XHJcbiAgICBjb2xvcjogZGFya3JlZDtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHdoaXRlO1xyXG4gICAgLyogbWFyZ2luLWJvdHRvbTogLTAuNWVtOyAqL1xyXG4gICAgcGFkZGluZzogLjI1ZW0gLjc1ZW0gLjI1ZW07XHJcbiAgICBib3JkZXI6IC43NXB4IHNvbGlkIGRhcmtyZWQ7XHJcbiAgICBib3JkZXItcmFkaXVzOiAuNWVtO1xyXG59XHJcbi5zYXZlZHtcclxuICAgIGNvbG9yOiBkYXJrZ3JlZW47XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcclxuICAgIC8qIG1hcmdpbi1ib3R0b206IC0wLjVlbTsgKi9cclxuICAgIHBhZGRpbmc6IC4yNWVtIC43NWVtIC4yNWVtO1xyXG4gICAgYm9yZGVyOiAuNzVweCBzb2xpZCBkYXJrZ3JlZW47XHJcbiAgICBib3JkZXItcmFkaXVzOiAuNWVtO1xyXG59XHJcbi5kZWwtaW1nLWJ0bntcclxuICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTtcclxuICAgIHRvcDogLjI1ZW07XHJcbiAgICByaWdodDogLjI1ZW07XHJcbiAgICBjb2xvcjpkYXJrcmVkO1xyXG4gICAgYm9yZGVyOm5vbmU7XHJcbn1cclxuLyogSW1hZ2UgaXRlbSBNb2RhbCAqL1xyXG4uaW1hZ2UtbW9kYWwgLmltZy1vcHRze1xyXG4gICAgZGlzcGxheTogZmxleDtcclxuICAgIGZsZXgtZGlyZWN0aW9uOiBjb2x1bW47XHJcbn0iXX0= */");
+/* harmony default export */ __webpack_exports__["default"] = (".card{\r\n    width: 25rem;\r\n    height: 20rem;\r\n    padding: .25em;\r\n    margin:1em;\r\n    background-color: rgba(210, 224, 224, .75);\r\n    color: #151e1e;\r\n}\r\n.card img{\r\n    height: calc(20rem - .75em);\r\n}\r\n.card .card-body{\r\n    text-align: left;\r\n    padding: 1em;\r\n    background-color: rgb(210, 224, 224);\r\n    min-height: 5rem;\r\n    transition:  transform 1s;\r\n    margin-top: -4.5rem;\r\n    visibility: hidden;   \r\n}\r\n.card:hover{\r\n    cursor:pointer;\r\n}\r\n.card:hover .card-body{\r\n    transform: translateY(-.5rem);\r\n    visibility: visible;\r\n    z-index: 1;\r\n    \r\n}\r\n.card-title::first-letter{\r\n    text-transform: uppercase;\r\n}\r\np.card-title{\r\n    font-size: .85em;\r\n    font-weight: bold;\r\n    white-space: nowrap;\r\n    width: 10rem;\r\n    overflow: hidden;\r\n    text-overflow: ellipsis;\r\n}\r\n.img-info{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    font-size: .75em;\r\n}\r\n.img-opts{\r\n    display: flex;\r\n    justify-content: space-between;\r\n    align-items: flex-start;\r\n}\r\n.img-opts p{\r\n    margin: 0em 1em;\r\n}\r\n.loved{\r\n    color: darkred;\r\n    background-color: white;\r\n    /* margin-bottom: -0.5em; */\r\n    padding: .25em .75em .25em;\r\n    border: .75px solid darkred;\r\n    border-radius: .5em;\r\n}\r\n.saved{\r\n    color: darkgreen;\r\n    background-color: white;\r\n    /* margin-bottom: -0.5em; */\r\n    padding: .25em .75em .25em;\r\n    border: .75px solid darkgreen;\r\n    border-radius: .5em;\r\n}\r\n.del-img-btn{\r\n    position: absolute;\r\n    top: .25em;\r\n    right: .25em;\r\n    color:darkred;\r\n    border:none;\r\n}\r\n/* Image item Modal */\r\n.image-modal .img-opts{\r\n    display: flex;\r\n    flex-direction: column;\r\n}\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9waG90by1pdGVtL3Bob3RvLWl0ZW0uY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLFlBQVk7SUFDWixhQUFhO0lBQ2IsY0FBYztJQUNkLFVBQVU7SUFDViwwQ0FBMEM7SUFDMUMsY0FBYztBQUNsQjtBQUNBO0lBQ0ksMkJBQTJCO0FBQy9CO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsWUFBWTtJQUNaLG9DQUFvQztJQUNwQyxnQkFBZ0I7SUFDaEIseUJBQXlCO0lBQ3pCLG1CQUFtQjtJQUNuQixrQkFBa0I7QUFDdEI7QUFDQTtJQUNJLGNBQWM7QUFDbEI7QUFDQTtJQUNJLDZCQUE2QjtJQUM3QixtQkFBbUI7SUFDbkIsVUFBVTs7QUFFZDtBQUNBO0lBQ0kseUJBQXlCO0FBQzdCO0FBQ0E7SUFDSSxnQkFBZ0I7SUFDaEIsaUJBQWlCO0lBQ2pCLG1CQUFtQjtJQUNuQixZQUFZO0lBQ1osZ0JBQWdCO0lBQ2hCLHVCQUF1QjtBQUMzQjtBQUNBO0lBQ0ksYUFBYTtJQUNiLDhCQUE4QjtJQUM5QixnQkFBZ0I7QUFDcEI7QUFDQTtJQUNJLGFBQWE7SUFDYiw4QkFBOEI7SUFDOUIsdUJBQXVCO0FBQzNCO0FBQ0E7SUFDSSxlQUFlO0FBQ25CO0FBQ0E7SUFDSSxjQUFjO0lBQ2QsdUJBQXVCO0lBQ3ZCLDJCQUEyQjtJQUMzQiwwQkFBMEI7SUFDMUIsMkJBQTJCO0lBQzNCLG1CQUFtQjtBQUN2QjtBQUNBO0lBQ0ksZ0JBQWdCO0lBQ2hCLHVCQUF1QjtJQUN2QiwyQkFBMkI7SUFDM0IsMEJBQTBCO0lBQzFCLDZCQUE2QjtJQUM3QixtQkFBbUI7QUFDdkI7QUFDQTtJQUNJLGtCQUFrQjtJQUNsQixVQUFVO0lBQ1YsWUFBWTtJQUNaLGFBQWE7SUFDYixXQUFXO0FBQ2Y7QUFDQSxxQkFBcUI7QUFDckI7SUFDSSxhQUFhO0lBQ2Isc0JBQXNCO0FBQzFCIiwiZmlsZSI6InNyYy9hcHAvY29tcG9uZW50cy9waG90by1pdGVtL3Bob3RvLWl0ZW0uY29tcG9uZW50LmNzcyIsInNvdXJjZXNDb250ZW50IjpbIi5jYXJke1xyXG4gICAgd2lkdGg6IDI1cmVtO1xyXG4gICAgaGVpZ2h0OiAyMHJlbTtcclxuICAgIHBhZGRpbmc6IC4yNWVtO1xyXG4gICAgbWFyZ2luOjFlbTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYmEoMjEwLCAyMjQsIDIyNCwgLjc1KTtcclxuICAgIGNvbG9yOiAjMTUxZTFlO1xyXG59XHJcbi5jYXJkIGltZ3tcclxuICAgIGhlaWdodDogY2FsYygyMHJlbSAtIC43NWVtKTtcclxufVxyXG4uY2FyZCAuY2FyZC1ib2R5e1xyXG4gICAgdGV4dC1hbGlnbjogbGVmdDtcclxuICAgIHBhZGRpbmc6IDFlbTtcclxuICAgIGJhY2tncm91bmQtY29sb3I6IHJnYigyMTAsIDIyNCwgMjI0KTtcclxuICAgIG1pbi1oZWlnaHQ6IDVyZW07XHJcbiAgICB0cmFuc2l0aW9uOiAgdHJhbnNmb3JtIDFzO1xyXG4gICAgbWFyZ2luLXRvcDogLTQuNXJlbTtcclxuICAgIHZpc2liaWxpdHk6IGhpZGRlbjsgICBcclxufVxyXG4uY2FyZDpob3ZlcntcclxuICAgIGN1cnNvcjpwb2ludGVyO1xyXG59XHJcbi5jYXJkOmhvdmVyIC5jYXJkLWJvZHl7XHJcbiAgICB0cmFuc2Zvcm06IHRyYW5zbGF0ZVkoLS41cmVtKTtcclxuICAgIHZpc2liaWxpdHk6IHZpc2libGU7XHJcbiAgICB6LWluZGV4OiAxO1xyXG4gICAgXHJcbn1cclxuLmNhcmQtdGl0bGU6OmZpcnN0LWxldHRlcntcclxuICAgIHRleHQtdHJhbnNmb3JtOiB1cHBlcmNhc2U7XHJcbn1cclxucC5jYXJkLXRpdGxle1xyXG4gICAgZm9udC1zaXplOiAuODVlbTtcclxuICAgIGZvbnQtd2VpZ2h0OiBib2xkO1xyXG4gICAgd2hpdGUtc3BhY2U6IG5vd3JhcDtcclxuICAgIHdpZHRoOiAxMHJlbTtcclxuICAgIG92ZXJmbG93OiBoaWRkZW47XHJcbiAgICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpcztcclxufVxyXG4uaW1nLWluZm97XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xyXG4gICAgZm9udC1zaXplOiAuNzVlbTtcclxufVxyXG4uaW1nLW9wdHN7XHJcbiAgICBkaXNwbGF5OiBmbGV4O1xyXG4gICAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xyXG4gICAgYWxpZ24taXRlbXM6IGZsZXgtc3RhcnQ7XHJcbn1cclxuLmltZy1vcHRzIHB7XHJcbiAgICBtYXJnaW46IDBlbSAxZW07XHJcbn1cclxuLmxvdmVke1xyXG4gICAgY29sb3I6IGRhcmtyZWQ7XHJcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiB3aGl0ZTtcclxuICAgIC8qIG1hcmdpbi1ib3R0b206IC0wLjVlbTsgKi9cclxuICAgIHBhZGRpbmc6IC4yNWVtIC43NWVtIC4yNWVtO1xyXG4gICAgYm9yZGVyOiAuNzVweCBzb2xpZCBkYXJrcmVkO1xyXG4gICAgYm9yZGVyLXJhZGl1czogLjVlbTtcclxufVxyXG4uc2F2ZWR7XHJcbiAgICBjb2xvcjogZGFya2dyZWVuO1xyXG4gICAgYmFja2dyb3VuZC1jb2xvcjogd2hpdGU7XHJcbiAgICAvKiBtYXJnaW4tYm90dG9tOiAtMC41ZW07ICovXHJcbiAgICBwYWRkaW5nOiAuMjVlbSAuNzVlbSAuMjVlbTtcclxuICAgIGJvcmRlcjogLjc1cHggc29saWQgZGFya2dyZWVuO1xyXG4gICAgYm9yZGVyLXJhZGl1czogLjVlbTtcclxufVxyXG4uZGVsLWltZy1idG57XHJcbiAgICBwb3NpdGlvbjogYWJzb2x1dGU7XHJcbiAgICB0b3A6IC4yNWVtO1xyXG4gICAgcmlnaHQ6IC4yNWVtO1xyXG4gICAgY29sb3I6ZGFya3JlZDtcclxuICAgIGJvcmRlcjpub25lO1xyXG59XHJcbi8qIEltYWdlIGl0ZW0gTW9kYWwgKi9cclxuLmltYWdlLW1vZGFsIC5pbWctb3B0c3tcclxuICAgIGRpc3BsYXk6IGZsZXg7XHJcbiAgICBmbGV4LWRpcmVjdGlvbjogY29sdW1uO1xyXG59Il19 */");
 
 /***/ }),
 
@@ -1037,19 +1085,67 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var src_app_services_photo_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! src/app/services/photo.service */ "./src/app/services/photo.service.ts");
+/* harmony import */ var src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! src/app/services/auth.service */ "./src/app/services/auth.service.ts");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+
+
 
 
 
 let SavedPhotoComponent = class SavedPhotoComponent {
-    constructor(photoService) {
+    constructor(photoService, authService, router) {
         this.photoService = photoService;
+        this.authService = authService;
+        this.router = router;
+        this.filters = this.photoService.getFilterOptions();
     }
     ngOnInit() {
+        if (!this.authService.isAuthenticated)
+            this.router.navigate(['/']);
         this.photoService.getSavedPhotos().subscribe(data => this.photos = data);
+    }
+    onFilter(event) {
+        console.log(event.target.value);
+        switch (event.target.value) {
+            case "1":
+                this.photos = this.photos.sort((a, b) => {
+                    var x = a.title.toLowerCase();
+                    var y = b.title.toLowerCase();
+                    if (x < y) {
+                        return -1;
+                    }
+                    if (x > y) {
+                        return 1;
+                    }
+                    return 0;
+                });
+                break;
+            case "2":
+                this.photos = this.photos.sort((a, b) => {
+                    var x = a.title.toLowerCase();
+                    var y = b.title.toLowerCase();
+                    if (x > y) {
+                        return -1;
+                    }
+                    if (x < y) {
+                        return 1;
+                    }
+                    return 0;
+                });
+                break;
+            case "3":
+                this.photos = this.photos.sort((a, b) => a.lovedBy.length - b.lovedBy.length);
+                break;
+            default:
+                return this.photos;
+        }
+        console.log(this.photos);
     }
 };
 SavedPhotoComponent.ctorParameters = () => [
-    { type: src_app_services_photo_service__WEBPACK_IMPORTED_MODULE_2__["PhotoService"] }
+    { type: src_app_services_photo_service__WEBPACK_IMPORTED_MODULE_2__["PhotoService"] },
+    { type: src_app_services_auth_service__WEBPACK_IMPORTED_MODULE_3__["AuthService"] },
+    { type: _angular_router__WEBPACK_IMPORTED_MODULE_4__["Router"] }
 ];
 SavedPhotoComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -1222,6 +1318,14 @@ let PhotoService = class PhotoService {
         this.authService = authService;
         this.urlPhoto = 'http://localhost:5000/api/photos';
         this.urlUser = 'http://localhost:5000/api/user';
+    }
+    getFilterOptions() {
+        return [
+            { id: 0, text: "Newest first" },
+            { id: 1, text: "Name A-Z" },
+            { id: 2, text: "Name Z-A" },
+            { id: 3, text: "Most popular" }
+        ];
     }
     getPhotos() {
         return this.http.get(this.urlPhoto);

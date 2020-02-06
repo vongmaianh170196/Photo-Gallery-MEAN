@@ -17,7 +17,7 @@ cloudinary.config({
 //get photos
 router.get('/', async(req, res) => {
   try {
-   const photos = await Photo.find();
+   const photos = await Photo.find().sort({postedDate: -1});
    res.json(photos);
   } catch (error) {
     console.log(error)
@@ -63,7 +63,7 @@ router.post('/upload', auth , async (req, res) => {
 //Get photos by user
 router.get('/:user_id', async (req, res) => {
   try {
-    let photos = await Photo.find({user: req.params.user_id});
+    let photos = await Photo.find({user: req.params.user_id}).sort({postedDate: -1});
     res.json(photos)
   } catch (error) {
     console.log(error)
@@ -73,7 +73,7 @@ router.get('/:user_id', async (req, res) => {
 //Get my photos
 router.get('/my_photos',auth, async (req, res) => {
   try {
-    let photos = await Photo.find({user: req.user.id});
+    let photos = await Photo.find({user: req.user.id}).sort({postedDate: -1});
     res.json(photos)
   } catch (error) {
     console.log(error)

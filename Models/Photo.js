@@ -10,7 +10,7 @@ const PhotoSchema = new mongoose.Schema({
     },
     title:{
         type:String,
-        // required: true
+        required: true
     },
     caption: {
         type: String
@@ -18,6 +18,10 @@ const PhotoSchema = new mongoose.Schema({
     path: {
         type: String,
         required: true
+    },
+    postedDate:{
+        type: Date,
+        default: Date.now()
     },
     lovedBy:[   
         {
