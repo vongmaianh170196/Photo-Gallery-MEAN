@@ -1183,7 +1183,7 @@ const httpOptions = {
 let AuthService = class AuthService {
     constructor(http) {
         this.http = http;
-        this.url = 'http://localhost:5000/api/user';
+        this.url = '/api/user';
         this.isAuthenticated = false;
     }
     loadUser(token) {
@@ -1255,7 +1255,7 @@ let PhotoItemService = class PhotoItemService {
     constructor(http, authService) {
         this.http = http;
         this.authService = authService;
-        this.url = 'http://localhost:5000/api/photos';
+        this.url = '/api/photos';
     }
     getHttpOptions(token) {
         return new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
@@ -1316,8 +1316,8 @@ let PhotoService = class PhotoService {
     constructor(http, authService) {
         this.http = http;
         this.authService = authService;
-        this.urlPhoto = 'http://localhost:5000/api/photos';
-        this.urlUser = 'http://localhost:5000/api/user';
+        this.urlPhoto = '/api/photos';
+        this.urlUser = '/api/user';
     }
     getFilterOptions() {
         return [

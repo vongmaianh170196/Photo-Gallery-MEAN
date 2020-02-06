@@ -11,8 +11,8 @@ import { AuthService } from './auth.service';
 })
 export class PhotoService {
 
-  urlPhoto:string='http://localhost:5000/api/photos';
-  urlUser:string = 'http://localhost:5000/api/user';
+  urlPhoto:string='/api/photos';
+  urlUser:string = '/api/user';
 
   constructor(private http:HttpClient, private authService: AuthService) { }
 

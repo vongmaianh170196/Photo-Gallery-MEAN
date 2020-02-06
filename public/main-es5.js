@@ -2204,7 +2204,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         _classCallCheck(this, AuthService);
 
         this.http = http;
-        this.url = 'http://localhost:5000/api/user';
+        this.url = '/api/user';
         this.isAuthenticated = false;
       }
 
@@ -2329,7 +2329,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.http = http;
         this.authService = authService;
-        this.url = 'http://localhost:5000/api/photos';
+        this.url = '/api/photos';
       }
 
       _createClass(PhotoItemService, [{
@@ -2443,8 +2443,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         this.http = http;
         this.authService = authService;
-        this.urlPhoto = 'http://localhost:5000/api/photos';
-        this.urlUser = 'http://localhost:5000/api/user';
+        this.urlPhoto = '/api/photos';
+        this.urlUser = '/api/user';
       }
 
       _createClass(PhotoService, [{

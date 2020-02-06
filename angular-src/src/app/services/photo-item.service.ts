@@ -10,7 +10,7 @@ import { AuthService } from './auth.service';
 })
 
 export class PhotoItemService {
-  url:string = 'http://localhost:5000/api/photos';
+  url:string = '/api/photos';
 
 
   constructor(private http:HttpClient, private authService: AuthService) {}

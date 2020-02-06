@@ -14,7 +14,7 @@ const httpOptions = {
 })
 export class AuthService {
 
-  url:string='http://localhost:5000/api/user'
+  url:string='/api/user'
   isAuthenticated:boolean = false;
   token:string
   loadedUser:User
