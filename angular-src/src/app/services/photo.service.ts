@@ -16,6 +16,15 @@ export class PhotoService {
 
   constructor(private http:HttpClient, private authService: AuthService) { }
 
+  getFilterOptions():Array<Object>{
+    return [
+      {id: 0, text: "Newest first"},
+      {id: 1, text: "Name A-Z"},      
+      {id: 2, text: "Name Z-A"},
+      {id: 3, text: "Most popular"}
+    ]
+  }
+
   getPhotos():Observable<Photo[]>{
     return this.http.get<Photo[]>(this.urlPhoto);
   }
@@ -50,7 +59,7 @@ export class PhotoService {
       'Content-Type': 'application/json',
       'x-auth-token': this.authService.token
     })
-    console.log("Serivce: " + photo._id)
+    
     return this.http.delete<Photo>(this.urlPhoto + `/${photo._id}`, {headers: headers});
   }
 }

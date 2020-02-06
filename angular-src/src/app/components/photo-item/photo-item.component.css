@@ -46,7 +46,7 @@ p.card-title{
 .img-opts{
     display: flex;
     justify-content: space-between;
-    align-items: end;
+    align-items: flex-start;
 }
 .img-opts p{
     margin: 0em 1em;

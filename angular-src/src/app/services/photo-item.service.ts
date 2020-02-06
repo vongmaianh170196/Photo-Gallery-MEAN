@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
 import { Photo } from '../models/Photo';
+import { AuthService } from './auth.service';
 
 
 @Injectable({
@@ -13,7 +13,7 @@ export class PhotoItemService {
   url:string = 'http://localhost:5000/api/photos';
 
 
-  constructor(private http:HttpClient, private authService:AuthService) {}
+  constructor(private http:HttpClient, private authService: AuthService) {}
   getHttpOptions(token:string){
      return new HttpHeaders({
       'Content-type': 'application/json',

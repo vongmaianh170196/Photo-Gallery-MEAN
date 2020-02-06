@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from 'src/app/services/auth.service';
 import { NgFlashMessageService } from 'ng-flash-messages';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'app-auth',
@@ -13,7 +14,12 @@ export class AuthComponent implements OnInit {
   password:string;
   avatar:string;
 
-  constructor(private modalService: NgbModal, private authService: AuthService, private ngFlashMessage: NgFlashMessageService) { }
+  constructor(
+    private modalService: NgbModal, 
+    private authService: AuthService,
+    private ngFlashMessage: NgFlashMessageService,
+    private router: Router
+    ) { }
 
   ngOnInit() {
     this.authService.loadUser(this.authService.token);
@@ -77,5 +83,6 @@ export class AuthComponent implements OnInit {
     this.username="";
     this.password="";
     this.avatar="";
+    this.router.navigate(['/'])
   }
 }

@@ -1,8 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
 body{
     background-color: #f0f5f5;
     font-family: Verdana,sans-serif;
+}
+.logo{
+    font-family: 'Pacifico', cursive;
+    font-size: 18pt;
+    font-weight: 100;
 }
 .container{
     max-width: 100%;
@@ -51,6 +57,21 @@ a, a:hover, a:active, a:visited{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+}
+.photos-opts{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.photo-opts-right{
+    margin-right:4em
+}
+.photo-opts-left{
+    margin-left:4em
+}
+.select-option{
+    padding: .5rem 1rem;
+    border-radius: .5em;
 }
 /* Modal */
 .modal-header, .modal-footer{
