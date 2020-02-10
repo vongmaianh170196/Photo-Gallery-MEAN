@@ -20,6 +20,8 @@
 
 `ng serve --open`
 ### Demo (if it is still up and running) : https://my-gallery-mean.herokuapp.com/
+
 username: test123
+
 password: Testuser123
  
